@@ -1,0 +1,28 @@
+# Temporary files
+*.swp
+*.pyc
+*.swo
+*.swn
+*.*~
+.DS_Store
+*.~lock*
+
+# Backup files
+*.bak
+
+# Testing
+coverage.xml
+nosetests.xml
+
+# Uploads
+www/public/media
+
+#confs which contain sensitive information
+www/conf/local.py
+www/conf/prod.py
+
+#logs
+logs/*.log
+
+#aws sensitive information
+aws/*

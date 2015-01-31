@@ -1,0 +1,41 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="{% block description %}{% endblock %}"/>
+        <meta name="keywords" content="{% block keywords %}{% endblock %}"/>
+
+        {% block "css" %}
+        <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "css/bootstrap-theme.min.css" %}">
+        {% endblock %}
+
+        <!-- Remove the no-js class as soon as possible: http://bit.ly/1duQn43 -->
+        <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+
+        <!-- Allow HTML5 elements to be styled in old IE: http://bit.ly/1gc9qgI -->
+        <!--[if lt IE 9]>
+            <script src="{% static "js/vendor/html5shiv.js" %}"></script>
+        <![endif]-->
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        <div class="container">
+            <div class="content">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+
+        {% block "js" %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{% static "js/vendor/jquery-1.11.0.min.js" %}"><\/script>')</script>
+        <script src="{% static "js/bootstrap.min.js" %}"></script>
+        {% include 'partials/google_analytics.html' %}
+        {% endblock %}
+
+    </body>
+</html>

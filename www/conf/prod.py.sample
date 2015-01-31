@@ -1,0 +1,26 @@
+import os
+
+location = lambda *path: os.path.join(
+    os.path.dirname(os.path.realpath(__file__)), '..', *path)
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': 'xxxxxxxxxxxx.rds.amazonaws.com:XXXX',
+        'PORT': '5432',
+    },
+}
+
+SECRET_KEY = 'some-long-string'
+# TODO: set up amazon emails
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ADMINS = (
+    ('name', 'email@domain.com'),
+)
+
+# Google Analytics
+GA_TRACKING_CODE = 'XXXXX-XXX'

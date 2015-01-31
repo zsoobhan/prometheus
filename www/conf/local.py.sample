@@ -1,0 +1,47 @@
+from conf.default import *
+
+DEBUG = TEMPLATE_DEBUG = True
+
+# Output emails to console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    },
+}
+
+
+
+ADMINS = (
+    ('name', 'name@domain.com'),
+)
+
+MANAGERS = ADMINS
+
+# keep logs out of www
+LOGGING = create_logging_dict(location('../logs'))
+
+# don't cache templates in dev
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+)
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
+
+COMPRESS_ENABLED = False
+SECRET_KEY = 'somereallylongstring'
+
+# Google Analytics
+GA_TRACKING_CODE = 'XXXXX-XXXX'
