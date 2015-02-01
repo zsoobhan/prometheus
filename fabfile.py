@@ -61,10 +61,12 @@ def set_branch_information():
 @runs_once
 def do_git_stuff():
     'updates local branch and pushes it.'
-    notify('Syncing with git repo', col=cyan)
-    notify('updating branch %(branch)s' % env)
-    local('git pull origin %(branch)s' % env)
-    local('git push origin %(branch)s' % env)
+    sync = prompt(magenta('Sync with repo? [Y/n]'))
+    if sync.strip() not in ['n', 'N']:
+        notify('Syncing with git repo', col=cyan)
+        notify('updating branch %(branch)s' % env)
+        local('git pull origin %(branch)s' % env)
+        local('git push origin %(branch)s' % env)
 
 
 def create_and_push_archive():
@@ -92,7 +94,7 @@ def provision_server():
         'install -y memcached',
         'install -y nginx',
         ]
-    provision = prompt(red('Provision Server? y/N'))
+    provision = prompt(red('Provision Server? [y/N]'))
     if provision.strip() in ['y', 'Y']:
         for cmd in apt_get_cmds:
             sudo('apt-get %s' % cmd)
@@ -180,9 +182,8 @@ def update_virtualenv():
 
 def manage_new_code():
     'Updates database and deals with static files'
-    notify('Syncdb, migrate and collecstatic are about to happen...')
+    notify('Migrate and collecstatic are about to happen...')
     cmds = [
-        './manage.py syncdb --noinput',
         './manage.py migrate',
         './manage.py collectstatic --noinput']
 
@@ -208,8 +209,10 @@ def restart_supervisor():
 
 
 def clean_tmp_dir():
-    notify('Clean up on aisle 3 (/tmp/*)')
-    sudo('rm -rf /tmp/*')
+    notify('Clean up on aisle 3!')
+    cmd = 'rm -rf %(build_path)s' % env
+    sudo(cmd)
+    local(cmd)
 
 
 def switch_symlink():
