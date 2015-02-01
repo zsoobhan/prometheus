@@ -2,17 +2,17 @@ import datetime
 
 from fabric.decorators import runs_once
 from fabric.operations import put, prompt
-from fabric.colors import green, white, _wrap_with, red, cyan, magenta, yellow
+from fabric.colors import green, white, _wrap_with, red, cyan, magenta, yellow  # noqa
 from fabric.api import local, cd, sudo
 from fabric.contrib.files import exists
 
 from fabconfig import env
-from fabconfig import prod
+from fabconfig import prod  # noqa
 
 
 def deploy():
     set_branch_information()
-    # do_git_stuff()
+    do_git_stuff()
     set_ssh_user()
     provision_server()
     make_folder_structure()
@@ -61,7 +61,8 @@ def set_branch_information():
 @runs_once
 def do_git_stuff():
     'updates local branch and pushes it.'
-    notify('updating branch %(branch)' % env)
+    notify('Syncing with git repo', col=cyan)
+    notify('updating branch %(branch)s' % env)
     local('git pull origin %(branch)s' % env)
     local('git push origin %(branch)s' % env)
 
@@ -73,6 +74,7 @@ def create_and_push_archive():
 
 
 def provision_server():
+    notify('Provisioning Server!')
     apt_get_cmds = [
         'update -qq',
         'install -y build-essential',
@@ -105,12 +107,14 @@ def make_virtualenv():
     ]
 
     if not exists(env.virtualenv):
+        notify('Making VirtualEnv')
         sudo('mkdir -p %(virtualenv)s' % env)
         with cd(env.virtualenv):
             [sudo(cmd) for cmd in v_env_commands]
 
 
 def make_folder_structure():
+    notify('Making folder structure.')
     sudo('mkdir -p %(builds_dir)s' % env)
     cmds = [
         'mkdir -p builds/%(build_name)s',
@@ -129,9 +133,10 @@ def make_folder_structure():
 
 
 def unpack():
+    notify('Unpacking codebase')
     sudo('mkdir -p %(builds_dir)s' % env)
     with cd(env.builds_dir):
-        sudo('if [ -d "%(build_name)s" ]; then rm -rf "%(build_name)s"; fi' % env)
+        sudo('if [ -d "%(build_name)s" ]; then rm -rf "%(build_name)s"; fi' % env)  # noqa
         sudo('mkdir %(build_name)s' % env)
         sudo('tar -xzf %(build_path)s -C %(build_name)s' % env)
     with cd(env.code_dir):
@@ -139,7 +144,7 @@ def unpack():
 
 
 def move_confs():
-    'uploading nginx and supervisor confs'
+    notify('Copying nginx and supervisor confs from deploy folder.')
     cmds = [
         'cp deploy/nginx/%(build)s.conf /etc/nginx/sites-enabled/',
         'cp deploy/supervisord/%(build)s.conf /etc/supervisor/conf.d/']
@@ -168,12 +173,14 @@ def _activate_virtualenv():
 
 
 def update_virtualenv():
+    notify('Updating VirtualEnv')
     with cd(env.code_dir+'/deploy'):
         sudo(_activate_virtualenv() + 'pip install -r requirements.txt')
 
 
 def manage_new_code():
     'Updates database and deals with static files'
+    notify('Syncdb, migrate and collecstatic are about to happen...')
     cmds = [
         './manage.py syncdb --noinput',
         './manage.py migrate',
@@ -185,21 +192,24 @@ def manage_new_code():
 
 
 def upload_settings():
+    notify('Uploading non-version controlled settings %(build)s.py' % env)
     put('www/conf/%(build)s.py' % env, '/tmp/')
     sudo('mv /tmp/%(build)s.py %(code_dir)s/conf/' % env)
 
 
 def restart_nginx():
+    notify('Re-starting Nginx')
     sudo('service nginx restart')
 
 
 def restart_supervisor():
-    # sudo('service supervisor restart ')
+    notify('Restarting App from supervisorctl')
     sudo('supervisorctl restart %(client)s-%(project_code)s-%(build)s' % env)
 
 
 def clean_tmp_dir():
-    sudo('rm -rf /tmp/')
+    notify('Clean up on aisle 3 (/tmp/*)')
+    sudo('rm -rf /tmp/*')
 
 
 def switch_symlink():
