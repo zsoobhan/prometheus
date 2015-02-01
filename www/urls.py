@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.contrib import admin
 from django.conf.urls import patterns, include, url
-from django.views import generic
 
 
 admin.autodiscover()
@@ -9,10 +8,6 @@ admin.autodiscover()
 urlpatterns = patterns(
     '',
     (r'^admin/', include(admin.site.urls)),
-)
-
-urlpatterns += patterns(
-    '',
     (r'', include('content.urls')),
 )
 
@@ -24,17 +19,6 @@ if settings.DEBUG:
     urlpatterns += static(
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-    # Allow FEDs to get arbitrary templates rendered and see the styleguide and
-    # maintenance page.
-    from django.shortcuts import render
-    urlpatterns += patterns(
-        '',
-        url(r'^templates/(?P<template_name>.*)$', render),
-        url(r'^styleguide/$', generic.TemplateView.as_view(
-            template_name='styleguide.html'))
-    )
-
-    # Do explicit setup of django debug toolbar
     import debug_toolbar
     urlpatterns += patterns(
         '', url(r'^__debug__/', include(debug_toolbar.urls)))
