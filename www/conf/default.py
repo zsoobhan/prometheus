@@ -43,6 +43,9 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
+ALLOWED_HOSTS = [
+    'zsoobhan.co.uk',
+    'www.zsoobhan.co.uk']
 
 # Use cached template loading by default
 TEMPLATE_LOADERS = (
@@ -86,7 +89,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'django.contrib.admin',
+    'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.flatpages',
     'django.contrib.staticfiles',
     'django_extensions',

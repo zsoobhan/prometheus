@@ -14,10 +14,9 @@ env.builds_dir = '%(project_dir)s/builds' % env
 def _configure(build_name):
     env.build = build_name
     env.virtualenv = '%(project_dir)s/virtualenvs/%(build)s/' % env
-    env.code_dir = '%(project_dir)s/builds/%(build)s/' % env
     env.data_dir = '%(project_dir)s/data/%(build)s/' % env
-    env.nginx_conf = 'deploy/nginx/%(build)s.conf' % env
-    env.supervisord_conf = 'deploy/supervisord/%(build)s.conf' % env
+    env.nginx_conf = 'www/deploy/nginx/%(build)s.conf' % env
+    env.supervisord_conf = 'www/deploy/supervisord/%(build)s.conf' % env
     env.wsgi = 'deploy/wsgi/%(build)s.wsgi' % env
     env.webserver_user = 'www-data'
 
@@ -25,4 +24,9 @@ def _configure(build_name):
 def prod():
     _configure('prod')
     env.hosts = ['ec2-54-77-186-157.eu-west-1.compute.amazonaws.com']
+    env.remote_user = 'ubuntu'
+
+
+def test():
+    _configure('test')
     env.remote_user = 'ubuntu'
