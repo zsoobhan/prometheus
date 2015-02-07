@@ -55,7 +55,7 @@ TEMPLATE_LOADERS = (
     )),
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
+TEMPLATE_CONTEXT_PROCESSORS = [
     "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.request",
     "django.core.context_processors.debug",
@@ -65,7 +65,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     # custom context processors
     "content.context_processors.add_ga_tracking_code"
-)
+]
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -95,6 +95,11 @@ INSTALLED_APPS = [
     'django_extensions',
     'debug_toolbar',
     'compressor',
+]
+
+# Prometheus Apps go here
+INSTALLED_APPS += [
+    'content',
 ]
 
 # Use cached sessions by default

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Ziyad Soobhan" %}{% endblock %}
+{% block description %}{% trans "Contact Form" %}{% endblock %}
+{% block keywords %}{% trans "Contact" %}{% endblock %}
+{% block body_class %}container-fluid{% endblock %}
+{% block content %}
+<div class="container">
+<form action="." method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
+</div>
+
+
+{% endblock %}
+

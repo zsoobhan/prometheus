@@ -1,8 +1,8 @@
 from django.conf.urls import patterns, url
-from django.views import generic
+from . import views
 
 urlpatterns = patterns(
     '',
-    url(r'^$', generic.TemplateView.as_view(
-        template_name="content/home.html")),
+    url(r'^$', views.HomeView.as_view()),
+    url(r'^contact/$', views.ContactFormView.as_view()),
 )
