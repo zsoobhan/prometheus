@@ -50,7 +50,8 @@ a
 
 a:hover
 {
-	text-decoration: none;
+     text-decoration: none;
+     text-shadow: 0px 0 15px #fff;
 }
 
 .container
@@ -231,72 +232,6 @@ ul.style3 .icon
 	color: #DB3256;
 }
 
-/*********************************************************************************/
-/* Social Icon Styles                                                            */
-/*********************************************************************************/
-
-	ul.contact
-{
-	margin: 0;
-	padding: 2em 0em 0em 0em;
-	list-style: none;
-}
-
-ul.contact li
-{
-	display: inline-block;
-	padding: 0em 0.30em;
-	font-size: 1em;
-}
-
-ul.contact li span
-{
-	display: none;
-	margin: 0;
-	padding: 0;
-}
-
-ul.contact li a
-{
-	color: #FFF;
-}
-
-ul.contact li a:before
-{
-	display: inline-block;
-	background: #3f3f3f;
-	width: 40px;
-	height: 40px;
-	line-height: 40px;
-	border-radius: 20px;
-	text-align: center;
-	color: #FFFFFF;
-}
-
-ul.contact li a.icon-twitter:before
-{
-	background: #2DAAE4;
-}
-
-ul.contact li a.icon-facebook:before
-{
-	background: #39599F;
-}
-
-ul.contact li a.icon-dribbble:before
-{
-	background: #C4376B;
-}
-
-ul.contact li a.icon-tumblr:before
-{
-	background: #31516A;
-}
-
-ul.contact li a.icon-rss:before
-{
-	background: #F2600B;
-}
 
 /*********************************************************************************/
 /* Button Style                                                                  */
@@ -396,6 +331,7 @@ ul.contact li a.icon-rss:before
 	#logo h1
 	{
 		font-size: 3.5em;
+		color: #FFF;
 	}
 	
 	#logo a
@@ -417,6 +353,11 @@ ul.contact li a.icon-rss:before
 		color: rgba(255,255,255,0.8);
 	}
 	
+	#logo:hover a
+	{
+       
+    }
+
 	#logo .icon
 	{
 		font-size: 4em;
@@ -454,10 +395,10 @@ ul.contact li a.icon-rss:before
 		display: inline-block;
 		margin-left: 0.50em;
 		padding: 2em 1.5em 1em 1.5em;
-		letter-spacing: 0.20em;
+		letter-spacing: 0.50em;
 		text-decoration: none;
-		font-size: 0.90em;
-		font-weight: 600;
+		font-size: 0.8em;
+		font-weight: 400;
 		text-transform: uppercase;
 		outline: 0;
 		color: #FFF;
@@ -465,7 +406,8 @@ ul.contact li a.icon-rss:before
 	
 	#menu li:hover a, #menu li.active a, #menu li.active span
 	{
-	}
+	text-shadow: 30px 0 30px #fff;
+    }
 	
 	#menu .current_page_item a
 	{
@@ -593,6 +535,76 @@ ul.contact li a.icon-rss:before
 	float: right;
 	width: 210px;
 }
+
+
+/*********************************************************************************/
+/* Social Icon Styles                                                            */
+/*********************************************************************************/
+
+	ul.contact
+{
+	margin: 0;
+	padding: 2em 0em 0em 0em;
+	list-style: none;
+}
+
+ul.contact li
+{
+	display: inline-block;
+	padding: 0em 0.30em;
+	font-size: 1em;
+}
+
+ul.contact li span
+{
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.contact li a
+{
+	color: #FFF;
+}
+
+ul.contact li a:before
+{
+	display: inline-block;
+	background: #3f3f3f;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 20px;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+ul.contact li a.icon-twitter:before
+{
+	background: #2DAAE4;
+}
+
+ul.contact li a.icon-facebook:before
+{
+	background: #39599F;
+}
+
+ul.contact li a.icon-dribbble:before
+{
+	background: #C4376B;
+}
+
+ul.contact li a.icon-tumblr:before
+{
+	background: #31516A;
+}
+
+ul.contact li a.icon-rss:before
+{
+	background: #F2600B;
+}
+
+
 
 /*********************************************************************************/
 /* Copyright                                                                     */

@@ -2,14 +2,42 @@
 {% load i18n %}
 
 {% block title %}{% trans "Ziyad Soobhan" %}{% endblock %}
-{% block description %}{% trans "Ziyad Soobhan's personal website" %}{% endblock %}
+{% block description %}{% trans "personal website" %}{% endblock %}
 {% block keywords %}{% trans "Homepage" %}{% endblock %}
 {% block body_class %}container-fluid{% endblock %}
+
+
 {% block content %}
-<div class="container">
-    <h1> Ziyad Soobhan </h1>
-    <h2> Climber, Coder, Physicist </h2> 
-    <h3> Content coming soon. </h3>
+<div id="wrapper">
+	<div id="featured-wrapper">
+		<div class="extra2 container-fluid">
+			<div class="ebox1">
+				<div class="title">
+					<h2>Ziyad Soobhan</h2>
+                    <span class="byline">Developer, Climber, Astrophysicist</span>
+                </div>
+                <p>
+                I am a web-developer with an MSci in Astrophysics as well as an avid rock-climber.
+                My work involves the implementation and maintenance of solutions primarily engineered in Python and Django 
+                which has lead to me being exposed to various mechanisms of content delivery. 
+                I work with various web technologies such as WSGI, Nginx, Apache, VirtualEnv and am particularly
+                interested in using Django as well as Docker. When not at work, I most probably can be found at my local
+                climbing wall where I train three to four times a week. 
+        
+                <p>
+			    </div>		
+		<div class="extra2 container-fluid">
+			<div class="ebox2">
+				<div class="hexagon"><span class="icon icon-beaker"></span></div>
+				<div class="title">
+					<h2>Status: Under Construction</h2>
+				</div>
+			    	<p>This website is currently under development so there may be a few styling atrocities here and there. For more information with regards to the status of the site, check my twitter feed or github repository, both whose links may be found at the bottom of this page. </p>
+			</div>		
+			</div>		
+
+		</div>	
+	</div>
 </div>
 {% endblock %}
 

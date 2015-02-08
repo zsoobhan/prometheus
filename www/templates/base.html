@@ -1,64 +1,61 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="no-js">
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>{% block title %}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="{% block description %}{% endblock %}"/>
         <meta name="keywords" content="{% block keywords %}{% endblock %}"/>
 
-        {% block "css" %}
-        <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-        <link rel="stylesheet" href="{% static "css/bootstrap-theme.min.css" %}">
-        {% endblock %}
+        {% block css %}
+            <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+            <link href="{% static "css/styles.css" %}" rel="stylesheet" type="text/css" media="all" />
+            <link href="{% static "css/fonts.css" %}" rel="stylesheet" type="text/css" media="all" />
+        {% endblock css %}
 
         <!-- Remove the no-js class as soon as possible: http://bit.ly/1duQn43 -->
         <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
-
-        <!-- Allow HTML5 elements to be styled in old IE: http://bit.ly/1gc9qgI -->
-        <!--[if lt IE 9]>
-            <script src="{% static "js/vendor/html5shiv.js" %}"></script>
-        <![endif]-->
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
+    <body class="{% block body_class %}container-fluid{% endblock %}">
     {% block body %}
-        <header>
-            <div class="container">
-            {% block header %}{% endblock %}
-            </div>
-        </header>
+        {% block messages %}
+            {% if messages %}
+            <ul class="messagelist">{% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|capfirst }}</li>
+            {% endfor %}</ul>
+            {% endif %}
+        {% endblock messages %}
 
-        <div class="container-fluid">
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
-        {{ message }}
-    </li>
-    {% endfor %}
-</ul>
-{% endif %}
-                {% block content %}{% endblock %}
-        </div>
+        {% block header %}
+            {% include 'partials/header.html' %}
+        {% endblock header %}
 
-        <footer>
-            {% block footer %}
-                {% include 'partials/footer.html' %}
-            {% endblock footer %}
-        </footer>
+        {% block menu %}
+            {% include 'partials/menu.html' %}
+        {% endblock menu %}
+
+        {% block content %}{% endblock content %}
+
+        {% block social %}
+            {% include 'partials/social.html' %}
+        {% endblock social %}
 
 
-        {% block "js" %}
+        {% block footer %}
+            {% include 'partials/footer.html' %}
+        {% endblock footer %}
+
+        {% block js %}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="{% static "js/vendor/jquery-1.11.0.min.js" %}"><\/script>')</script>
         <script src="{% static "js/bootstrap.min.js" %}"></script>
         {% include 'partials/google_analytics.html' %}
-        {% endblock %}
+        {% endblock js %}
 
-    {% endblock %}
+    {% endblock body %}
     </body>
 </html>

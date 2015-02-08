@@ -5,13 +5,34 @@
 {% block description %}{% trans "Contact Form" %}{% endblock %}
 {% block keywords %}{% trans "Contact" %}{% endblock %}
 {% block body_class %}container-fluid{% endblock %}
+
 {% block content %}
-<div class="container">
-<form action="." method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit" />
-</form>
+
+<div id="wrapper">
+	<div id="featured-wrapper">
+		<div class="extra2 container-fluid">
+
+			<div class="hexagon"><span class="icon icon-envelope"></span></div>
+				<div class="title">
+					<h2>Contact Form</h2>
+                <p>If you would like to contact me, leave your details below and I will be in touch. Additional details about me are on my resume which can be found in the footer of this page.</p>
+				</div>
+                <form action="." method="POST">
+                    {% csrf_token %}
+                    {# Include the visible fields only #}
+                    {% for field in form.visible_fields %}
+                        <div class="fieldWrapper">
+                            {{ field.errors }}
+                            {{ field.label_tag }} {{ field }}
+                        </div>
+                    {% endfor %}
+                    {% for hidden in form.hidden_fields %}
+                        {{ hidden }}
+                    {% endfor %}
+                    <input class="button" type="submit" value="Submit" />
+                </form>
+            </div>
+        </div>
 </div>
 
 

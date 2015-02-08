@@ -1,3 +1,12 @@
 from django.contrib import admin
+from . import models
 
-# Register your models here.
+
+@admin.register(models.Communication)
+class AuthorAdmin(admin.ModelAdmin):
+    date_hierarchy = 'date_created'
+    list_display = [
+        'name',
+        'email',
+        'date_created',
+        'phone_number']

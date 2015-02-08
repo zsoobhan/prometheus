@@ -18,5 +18,7 @@ class Communication(models.Model):
         help_text='Your phone number goes here.')
     date_created = models.DateTimeField(auto_now_add=True)
 
+    def __unicode__(self):
+        return u'<Name:%s -- Date:%s >' % (self.name, self.date_created.date())
 
 post_save.connect(signals.notify_admin, sender=Communication)
