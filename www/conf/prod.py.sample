@@ -22,5 +22,6 @@ ADMINS = (
     ('name', 'email@domain.com'),
 )
 
+LOGGING = create_logging_dict(location('../../logs/prod'))
 # Google Analytics
 GA_TRACKING_CODE = 'XXXXX-XXX'
