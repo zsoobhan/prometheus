@@ -4,30 +4,28 @@
 {% block title %}{% trans "Ziyad Soobhan" %}{% endblock %}
 {% block description %}{% trans "About" %}{% endblock %}
 {% block keywords %}{% trans "About, Github, Source Code" %}{% endblock %}
-{% block body_class %}container-fluid{% endblock %}
+{% block body_class %}wrapper{% endblock %}
 
 {% block content %}
 
-<div id="wrapper">
-	<div id="featured-wrapper">
-		<div class="extra2 container-fluid">
+<div id="featured-wrapper">
+    <div class="extra2">
 
-				<div class="hexagon"><span class="icon icon-wrench"></span> </div>
-				<div class="title">
-					<h2>Infrastructure</h2>
-                    <span class="byline">This page is still under construction.</span>
-				</div>
-                <p>
-                I have recently been experimenting with Amazon Web Services which lead to conception of this website. It runs on the free tier setup which gives
-                limited free access to most of the AWS services. Since I have yet to decide on a permanent set-up, the code base
-                can be deployed to most servers with minor changes to the deploy script and is minimally tied into the AWS ecosystem. 
-                This site is built in Django 1.7 and is currently set up to run with WSGI. The server is provisioned 
-                using a fabric deploy script which, in addition to updating the code base, installs Nginx and virtualenv as well as 
-                updates the database structure. This page will eventually contain a much more detailed description of the project. 
-                In the mean time, more information can be found from the source code on GitHub.
-                </p>
-				<a id="source-code" href="//github.com/zsoobhan/prometheus" class="button" target="_blank">Source Code</a>
-        </div>
+            <div class="hexagon"><span class="icon fa-wrench"></span> </div>
+            <div class="title">
+                <h2>Infrastructure</h2>
+                <span class="byline">This page is still under construction.</span>
+            </div>
+            <p>
+            I have recently been experimenting with Amazon Web Services which lead to conception of this website. It runs on the free tier setup which gives
+            limited free access to most of the AWS services. Since I have yet to decide on a permanent set-up, the code base
+            can be deployed to most servers with minor changes to the deploy script and is minimally tied into the AWS ecosystem. 
+            This site is built in Django 1.7 and is currently set up to run with WSGI. The server is provisioned 
+            using a fabric deploy script which, in addition to updating the code base, installs Nginx and virtualenv as well as 
+            updates the database structure. This page will eventually contain a much more detailed description of the project. 
+            In the mean time, more information can be found from the source code on GitHub.
+            </p>
+            <a id="source-code" href="//github.com/zsoobhan/prometheus" class="button" target="_blank">Source Code</a>
     </div>
 </div>
 

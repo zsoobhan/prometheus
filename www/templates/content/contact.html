@@ -4,35 +4,42 @@
 {% block title %}{% trans "Ziyad Soobhan" %}{% endblock %}
 {% block description %}{% trans "Contact Form" %}{% endblock %}
 {% block keywords %}{% trans "Contact" %}{% endblock %}
-{% block body_class %}container-fluid{% endblock %}
+{% block body_class %}wrapper{% endblock %}
 
 {% block content %}
 
-<div id="wrapper">
-	<div id="featured-wrapper">
-		<div class="extra2 container-fluid">
-
-			<div class="hexagon"><span class="icon icon-envelope"></span></div>
+<div id="featured-wrapper">
+    <div class="extra2">
+			<div class="ebox1">
 				<div class="title">
-					<h2>Contact Form</h2>
-                <p>If you would like to contact me, leave your details below and I will be in touch. Additional details about me are on my resume which can be found in the footer of this page.</p>
-				</div>
-                <form action="." method="POST">
-                    {% csrf_token %}
-                    {# Include the visible fields only #}
-                    {% for field in form.visible_fields %}
-                        <div class="fieldWrapper">
-                            {{ field.errors }}
-                            {{ field.label_tag }} {{ field }}
-                        </div>
-                    {% endfor %}
-                    {% for hidden in form.hidden_fields %}
-                        {{ hidden }}
-                    {% endfor %}
-                    <input id="contact" class="button" type="submit" value="Submit" />
-                </form>
-            </div>
-        </div>
+                    <div class="hexagon">
+                        <span class="icon fa-envelope"></span>
+                    </div>
+                    <div class="title">
+                        <h2>Contact Form</h2>
+                        <p>
+                            If you would like to contact me, leave your details below and I will be in touch. Additional details about me are on my resume which can be found in the footer of this page.
+                        </p>
+                    </div>
+                    <div class="contactform">
+                        <form action="." method="POST">
+                            {% csrf_token %}
+                        {# Include the visible fields only #}
+                        {% for field in form.visible_fields %}
+                            <div class="fieldWrapper">
+                                {{ field.errors }}
+                                {{ field.label_tag }} {{ field }}
+                            </div>
+                        {% endfor %}
+                        {% for hidden in form.hidden_fields %}
+                            {{ hidden }}
+                        {% endfor %}
+                        <input id="contact" class="button" type="submit" value="Submit" />
+                       </form>
+                   </div>
+               </div>
+          </div>
+    </div>
 </div>
 
 

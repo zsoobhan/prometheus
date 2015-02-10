@@ -11,13 +11,13 @@
         <meta name="keywords" content="{% block keywords %}{% endblock %}"/>
 
         {% block css %}
+            <!-- Remove the no-js class as soon as possible: http://bit.ly/1duQn43 -->
+            <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+
             <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
             <link href="{% static "css/styles.css" %}" rel="stylesheet" type="text/css" media="all" />
-            <link href="{% static "css/fonts.css" %}" rel="stylesheet" type="text/css" media="all" />
         {% endblock css %}
 
-        <!-- Remove the no-js class as soon as possible: http://bit.ly/1duQn43 -->
-        <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
     </head>
 
     <body class="{% block body_class %}container-fluid{% endblock %}">
