@@ -19,6 +19,12 @@ class ContactFormView(generic.FormView):
         messages.success(self.request, self.success_message)
         return super(ContactFormView, self).form_valid(form)
 
+    def get_form_kwargs(self):
+        # Adds answer from session to the form kwargs for human verification
+        kwargs = super(ContactFormView, self).get_form_kwargs()
+        kwargs['answer'] = self.request.session['q_and_a']['answer']
+        return kwargs
+
 
 class HomeView(generic.TemplateView):
     template_name = 'content/home.html'

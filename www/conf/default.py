@@ -64,7 +64,8 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "django.core.context_processors.static",
     "django.contrib.messages.context_processors.messages",
     # custom context processors
-    "content.context_processors.add_ga_tracking_code"
+    "content.context_processors.add_ga_tracking_code",
+    "content.context_processors.add_robots_question"
 ]
 
 MIDDLEWARE_CLASSES = (
@@ -75,6 +76,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    # Custom middleware
+    'content.middleware.QuestionMiddleware',
 )
 
 ROOT_URLCONF = 'urls'

@@ -2,14 +2,9 @@ from django.utils.translation import ugettext as _
 from django import forms
 
 from . import models
-from . import service
 
 
 class ContactForm(forms.ModelForm):
-
-    class Meta:
-        model = models.Communication
-        exclude = ['date_created']
 
     robots_check_this = forms.BooleanField(
         required=False,
@@ -17,9 +12,7 @@ class ContactForm(forms.ModelForm):
 
     answer = forms.IntegerField(
         required=True,
-        # need to override __init__() to make this change
-        # at run time
-        label="What is %s + %s?" % service.generate_words())
+        label="Answer the simple sum to prove you're human")
 
     def clean_robots_check_this(self):
         # Only robots are likely to see this field.
@@ -31,13 +24,19 @@ class ContactForm(forms.ModelForm):
 
     def clean_answer(self):
         # Validate the answer
-        question = self.fields.get('answer').label
-        calculated_answer = service.generate_answer(question)
         answer = self.cleaned_data.get('answer')
-
-        if answer != calculated_answer:
+        if answer != self.calculated_answer:
             raise forms.ValidationError(
                 _('The answer you entered is incorrect.'),
                 code='incorrect_answer')
 
         return answer
+
+    def __init__(self, *args, **kwargs):
+        # Add answer from session to form instance
+        self.calculated_answer = kwargs.pop('answer', None)
+        super(ContactForm, self).__init__(*args, **kwargs)
+
+    class Meta:
+        model = models.Communication
+        exclude = ['date_created']
