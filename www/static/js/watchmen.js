@@ -7,11 +7,11 @@ $('#github-social').on('click', function() {
 });
 
 $('#resume-social').on('click', function() {
-  ga('send', 'event', 'footer', 'click', 'resume');
+  ga('send', 'event', 'social', 'click', 'resume');
 });
 
 $('#twitter-social').on('click', function() {
-  ga('send', 'event', 'footer', 'click', 'twitter');
+  ga('send', 'event', 'social', 'click', 'twitter');
 });
 
 $('#contact').on('click', function() {

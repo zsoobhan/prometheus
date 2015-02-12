@@ -30,6 +30,10 @@ STATIC_URL = '/static/'
 
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
+# Email Settings
+DEFAULT_FROM_EMAIL = 'app@zsoobhan.co.uk'
+COMMUNICATION_EMAIL = 'zsoobhan@gmail.com'
+
 # Additional locations of static files
 STATICFILES_DIRS = (
     location('static/'),

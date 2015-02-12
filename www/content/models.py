@@ -21,4 +21,4 @@ class Communication(models.Model):
     def __unicode__(self):
         return u'<Name:%s -- Date:%s >' % (self.name, self.date_created.date())
 
-post_save.connect(signals.notify_admin, sender=Communication)
+post_save.connect(signals.notify, sender=Communication)
