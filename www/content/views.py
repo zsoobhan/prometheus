@@ -2,7 +2,7 @@ from django.views import generic
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse_lazy
-
+from django.http import HttpResponseRedirect
 from . import forms
 
 
@@ -32,3 +32,10 @@ class HomeView(generic.TemplateView):
 
 class InfrastructureView(generic.TemplateView):
     template_name = 'content/infrastructure.html'
+
+
+class BlogView(generic.View):
+
+    def get(self, request, *args, **kwargs):
+        messages.success(self.request, _('The blog is coming soon.'))
+        return HttpResponseRedirect(reverse_lazy('home'))
