@@ -26,12 +26,14 @@
                     {% csrf_token %}
                     {# Include the visible fields only #}
                     {% for field in form.visible_fields %}
-                        {{ field.errors }}
                         {% if field.name == "answer" %}
-                            <span class="simple-sum">{{ QUESTION }}</span>
+                            <label for="id_answer">{{ QUESTION }}:</label>
+                            {{ field }}
+                        {% else %}
+                            {{ field.label_tag }}
+                            {{ field }}
                         {% endif %}
-                        {{ field.label_tag }} {{ field }}
-                        <br>
+                        {{ field.errors }}
                     {% endfor %}
                     {% for hidden in form.hidden_fields %}
                         {{ hidden }}
@@ -40,7 +42,7 @@
                 </form>
             </div>
         </div>
-        <div class="small-spacer"></div>
+        <div class="spacer"></div>
     </div>
 </div>
 
