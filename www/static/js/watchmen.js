@@ -7,7 +7,7 @@ $('#contact-js').on('click', function() {
 });
 
 $('.social-icon').on('click', function() {
-  ga('send', 'event', 'footer', 'click', $(this).data('target'));
+  ga('send', 'event', 'social', 'click', $(this).data('target'));
 });
 
 $('#source-code-button-js').on('click', function() {
