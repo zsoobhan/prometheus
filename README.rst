@@ -5,38 +5,54 @@ Prometheus - http://zsoobhan.co.uk
 Introduction
 ------------
 Ziyad Soobhan's personal website/project.
-Yes, it's over-complicated and over-engineered.
-I don't need a namespaced virtual environment, nor a database for that matter.
-I probably could have served the content entirely from Nginx and be done with it.
-However the purpose of this site is for me to mess around a little bit with
-various technologies. There is a docker branch too which runs locally. Most of
-it has been built in 10-25 minute chunks of spare time and will be liable
-to change when I make proper time for it.
+This a Django 1.7.x with a fabric deploy script. It is designed to be 
+repeatable and painless to set up again if the infrastructure changes i.e.
+when I run out of the AWS Free Tier offer. 
+
+The content is mostly flat with a content served using the TemplateView.
+There is also a contact form which saves content to the database as well as
+sends an email using an post_save.connect signal. There is also some basic 
+context processing and middleware which provides a dynamic question, saved in
+the session, to the form. This is then used to verify if the user is a robot.
+
+The majority of the project has been built in my spare time in 15-30 minute 
+chunks while on the tube.
 
 
+Future
+------
 
-TO DO
------
+The blog page is currently blank and will use a CMS. At the moment, I am looking
+at Django CMS however this may change if I come across something more fit for
+purpose.
 
-  - The deploy script needs some work and re-factoring...but it works at least.
-  - Add some content - About me page, contact me form, photography, climbing etc
-  - Set up emails and reporting
-  - Set up some proper analytics, tag manager etc
-  
+
+Analytics
+---------
+
+The project uses Universal Analytics from Google to track basic page views
+as tracking events on button clicks.
+I plan on using more of the Google Tag Manager features as and when required
+after the implementation of the blog.
+
 
 Infrastructure
 --------------
-Free tier AWS setup with RDS instance.
+This project has been set up to run on the AWS Free Tier infrastructure.
+It uses a PostGres database backend stored on an RDS instance and uses 
+SES to send email alerts. 
 
-Name-spacing:
 
-  - virtualenv (made sense at the time, not sure now)
+VirtualEnv:
+
+  - All libraries required for the project are installed in its own namepaced
+    virtual environment.
 
 Database:
 
   - PostgreSQL 9.3 on RDS instance
 
-Server (t2 micro):
+Server (T2 Micro):
 
   - Supervisor
   - WSGI
@@ -54,10 +70,14 @@ Deploy:
 
 Status
 ------
-Deployed but without content.
+Up and running with limited content.
 
 
 Acknowledgements
 ----------------
 The overall structure has been inspired by 
-tangentlabs/tangent-django-boilerplate. 
+tangentlabs/tangent-django-boilerplate.
+
+The design was inspired by templated.co/plushiness which has been modified to
+be more responsive. 
+

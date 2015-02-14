@@ -625,7 +625,7 @@ ul.contact li a.icon-rss:before
 .copyright
 {
 	overflow: hidden;
-	padding: 5em 0em;
+	padding: 1em 0em;
 	border-top: 1px solid rgba(255,255,255,0.08);
 }
 
@@ -891,7 +891,7 @@ ul.contact li a.icon-rss:before
 .footer-wrapper
 {
 	overflow: hidden;
-	padding: 2em 0em;
+	padding: 0em 0em;
 	background: #3D3D3D;
 }
 
