@@ -20,7 +20,7 @@
 
     </head>
 
-    <body class="{% block body_class %}container-fluid{% endblock %}">
+    <body class="{% block body_class %}wrapper{% endblock body_class %}">
     {% block body %}
         {% block messages %}
             {% if messages %}
@@ -50,8 +50,8 @@
         {% endblock footer %}
 
         {% block js %}
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="{% static "js/watchmen.js" %}"></script>
+            <script src="{% static "js/jquery.min.js" %}"></script>
+            <script src="{% static "js/watchmen.js" %}"></script>
         {% include 'partials/google_analytics.html' %}
         {% endblock js %}
 

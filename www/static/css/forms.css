@@ -1,4 +1,28 @@
-.contactform {
-
-		text-align: center;
+.contact-form {
+		text-align: left;
 }
+
+.contact-form label{
+
+    text-align: left;
+    margin-right: 0.5em;
+    display: block;
+}
+
+.contact-form input{
+
+    display: block;
+}
+
+.contact-form textarea{
+
+}
+
+.contact-form .simple-sum{
+    display: block;
+}
+
+.contact-form .errorlist{
+	color: #F00;
+}
+

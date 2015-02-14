@@ -8,38 +8,39 @@
 
 {% block content %}
 
-<div id="featured-wrapper">
+<div class="featured-wrapper">
     <div class="extra2">
-			<div class="ebox1">
-				<div class="title">
-                    <div class="hexagon">
-                        <span class="icon fa-envelope"></span>
-                    </div>
-                    <div class="title">
-                        <h2>Contact Form</h2>
-                        <p>
-                            If you would like to contact me, leave your details below and I will be in touch. Additional details about me are on my resume which can be found in the footer of this page.
-                        </p>
-                    </div>
-                    <div class="contactform">
-                        <form action="." method="POST">
-                            {% csrf_token %}
-                        {# Include the visible fields only #}
-                        {% for field in form.visible_fields %}
-                            <div class="fieldWrapper">
-                                {{ field.errors }}
-                                {{ field.label_tag }} {{ field }}
-                            </div>
-                        {% endfor %}
-                        Simple Sum: {{ QUESTION }}
-                        {% for hidden in form.hidden_fields %}
-                            {{ hidden }}
-                        {% endfor %}
-                        <input id="contact" class="button" type="submit" value="Submit" />
-                       </form>
-                   </div>
-               </div>
-          </div>
+        <div class="small-spacer"></div>
+		<div class="ebox">
+            <div class="hexagon">
+                    <span class="icon fa-envelope"></span>
+            </div>
+            <div class="title">
+                 <h2>Contact Form</h2>
+            <span class="byline">
+                If you would like to contact me, leave your details below and I will be in touch. 
+            </span>
+            </div>
+            <div class="contact-form">
+                <form action="." method="POST">
+                    {% csrf_token %}
+                    {# Include the visible fields only #}
+                    {% for field in form.visible_fields %}
+                        {{ field.errors }}
+                        {% if field.name == "answer" %}
+                            <span class="simple-sum">{{ QUESTION }}</span>
+                        {% endif %}
+                        {{ field.label_tag }} {{ field }}
+                        <br>
+                    {% endfor %}
+                    {% for hidden in form.hidden_fields %}
+                        {{ hidden }}
+                    {% endfor %}
+                    <input id="contact-js" class="button" type="submit" value="Submit" data-target="contact-submit"/>
+                </form>
+            </div>
+        </div>
+        <div class="small-spacer"></div>
     </div>
 </div>
 
