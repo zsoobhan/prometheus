@@ -1,24 +1,15 @@
-$('#footer').on('click', function() {
+$('#footer-js').on('click', function() {
   ga('send', 'event', 'footer', 'click', 'source-code');
 });
 
-$('#github-social').on('click', function() {
-  ga('send', 'event', 'social', 'click', 'github');
+$('#contact-js').on('click', function() {
+  ga('send', 'event', 'contact', 'click', $(this).data('target'));
 });
 
-$('#resume-social').on('click', function() {
-  ga('send', 'event', 'social', 'click', 'resume');
+$('.social-icon').on('click', function() {
+  ga('send', 'event', 'footer', 'click', $(this).data('target'));
 });
 
-$('#twitter-social').on('click', function() {
-  ga('send', 'event', 'social', 'click', 'twitter');
-});
-
-$('#contact').on('click', function() {
-  ga('send', 'event', 'contact', 'click', 'contactform');
-});
-
-
-$('#source-code').on('click', function() {
-  ga('send', 'event', 'source-code', 'click', 'infrastructure');
+$('#source-code-button-js').on('click', function() {
+  ga('send', 'event', 'infrastructure', 'click', 'source-code');
 });

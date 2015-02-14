@@ -2,28 +2,31 @@
 /* social Style                                                                  */
 /*********************************************************************************/
 
-.social-wrapper {
-    width: 960px;
-    margin: 0 auto;
+.social{
+
+	overflow: hidden;
+    background: #3D3D3D;
 }
 
-
-@media(max-width: 960px) 
-{
-    .social-wrapper {
-        width: 100%;
-    }
-}
 
 .social-wrapper
 {
     margin: 0px auto;
 	overflow: hidden;
-    color: #6c6c6c
+    color: #6c6c6c;
     float: none;
     text-align: center;
-	
     border-top: 1px solid rgba(255,255,255,0.08);
+    width: 960px;
+    margin: 0 auto;
+	overflow: hidden;
+}
+
+
+@media(max-width: 960px) {
+    .social-wrapper {
+        width: 100%;
+    }
 }
 
 .social-wrapper li
@@ -32,7 +35,6 @@
     float: left;
     text-align: center;
     width:33.3%;
-    color: #FFF;
     margin: 1.5em 0;
 	font-size: 2em;
     box-sizing: border-box;

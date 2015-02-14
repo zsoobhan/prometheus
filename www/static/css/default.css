@@ -298,18 +298,27 @@ ul.style3 .icon
 /* Header                                                                        */
 /*********************************************************************************/
 
-	#header-wrapper
+	.header-wrapper
 	{
 		overflow: hidden;
-		padding: 5em 0em 0em 0em;
+		padding: 2em 0em 0em 0em;
+		text-align: center;
 		background: #FFC000;
 	}
 
-	#header
+	.header h1
 	{
+		font-size: 3.5em;
+		color: #FFF;
 	}
 
-#triangle-up {
+	.header img
+	{
+        margin: 2px auto;
+        width: auto;
+	}
+
+.triangle-up {
 	margin: 0 auto;
 	width: 0;
 	height: 0;
@@ -322,25 +331,25 @@ ul.style3 .icon
 /* Logo                                                                          */
 /*********************************************************************************/
 
-	#logo
+	.logo
 	{
 		padding: 5em 0em;
 		text-align: center;
 	}
 	
-	#logo h1
+	.logo h1
 	{
 		font-size: 3.5em;
 		color: #FFF;
 	}
 	
-	#logo a
+	.logo a
 	{
 		text-decoration: none;
 		color: #FFF;
 	}
 	
-	#logo span
+	.logo span
 	{
 		letter-spacing: 0.10em;
 		text-transform: uppercase;
@@ -348,17 +357,17 @@ ul.style3 .icon
 		color: rgba(255,255,255,0.5);
 	}
 
-	#logo span a
+	.logo span a
 	{
 		color: rgba(255,255,255,0.8);
 	}
 	
-	#logo:hover a
+	.logo:hover a
 	{
        
     }
 
-	#logo .icon
+	.logo .icon
 	{
 		font-size: 4em;
 		color: rgba(255,255,255,1);
@@ -370,27 +379,28 @@ ul.style3 .icon
 /* Menu                                                                          */
 /*********************************************************************************/
 
-	#menu-wrapper
+	.menu-wrapper
 	{
 		background: #3D3D3D;
 	}
 
-	#menu
+	.menu
 	{
 		margin: 0px auto;
 	}
 	
-	#menu ul
+	.menu ul
 	{
 		text-align: center;
 	}
 	
-	#menu li
+	.menu li
 	{
 		display: inline-block;
 	}
 	
-	#menu li a, #menu li span
+	.menu li a,
+    .menu li span
 	{
 		display: inline-block;
 		margin-left: 0.50em;
@@ -404,7 +414,9 @@ ul.style3 .icon
 		color: #FFF;
 	}
 	
-	#menu li:hover a, #menu li.active a, #menu li.active span
+	.menu li:hover a,
+    .menu li.active a, 
+    .menu li.active span
 	{
 	text-shadow: 30px 0 30px #fff;
     }
@@ -418,14 +430,14 @@ ul.style3 .icon
 /* Banner                                                                        */
 /*********************************************************************************/
 	
-	#banner-wrapper
+.banner-wrapper
 {
 	overflow: hidden;
 	padding: 3em 0em;
 	background: #F87979;
 }
 
-#banner
+.banner
 {
 	overflow: hidden;
 	width: 1000px;
@@ -434,22 +446,22 @@ ul.style3 .icon
 	color: rgba(255,255,255,.7);
 }
 
-#banner a
+.banner a
 {
 	color: rgba(255,255,255,.9);
 }
 
-#banner .box-left
+.banner .box-left
 {
 	float: left;
 }
 
-#banner .box-right
+.banner .box-right
 {
 	float: right;
 }
 
-#banner h2
+.banner h2
 {
 	margin: 0em;
 	padding: 0em;
@@ -458,7 +470,7 @@ ul.style3 .icon
 	color: #555555;
 }
 
-#banner span
+.banner span
 {
 	display: block;
 	padding-top: 0.20em;
@@ -471,12 +483,12 @@ ul.style3 .icon
 /* Page                                                                          */
 /*********************************************************************************/
 
-#wrapper
+.wrapper
 {
-	background: #FFF;
+	background: #3D3D3D;
 }
 
-#page
+.page
 {
 	overflow: hidden;
 	padding: 6em 0em;
@@ -484,7 +496,7 @@ ul.style3 .icon
 	text-align: center;
 }
 
-#page .button
+.page .button
 {
 	margin-top: 2em;
 }
@@ -493,7 +505,7 @@ ul.style3 .icon
 /* Content                                                                       */
 /*********************************************************************************/
 
-#content
+.content
 {
 	padding: 0em 7em;
 }
@@ -502,18 +514,18 @@ ul.style3 .icon
 /* Sidebar                                                                       */
 /*********************************************************************************/
 
-	#sidebar
+	.sidebar
 {
 	float: right;
 	width: 450px;
 }
 
-#stwo-col
+.stwo-col
 {
 	margin-top: 2em;
 }
 
-#stwo-col h2
+.stwo-col h2
 {
 	display: block;
 	padding-bottom: 1.5em;
@@ -524,7 +536,7 @@ ul.style3 .icon
 	color: #454445;
 }
 
-#stwo-col .sbox1
+.stwo-col .sbox1
 {
 	float: left;
 	width: 210px;
@@ -610,14 +622,14 @@ ul.contact li a.icon-rss:before
 /* Copyright                                                                     */
 /*********************************************************************************/
 
-#copyright
+.copyright
 {
 	overflow: hidden;
 	padding: 5em 0em;
 	border-top: 1px solid rgba(255,255,255,0.08);
 }
 
-#copyright p
+.copyright p
 {
 	letter-spacing: 0.20em;
 	text-align: center;
@@ -626,23 +638,23 @@ ul.contact li a.icon-rss:before
 	color: rgba(255,255,255,0.3);
 }
 
-#copyright a
+.copyright a
 {
 	text-decoration: none;
 	color: rgba(255,255,255,0.6);
 }
 
-#stamp .hexagon
+.stamp .hexagon
 {
 	background: #3D3D3D;
 }
 
-#stamp .hexagon:before {
+.stamp .hexagon:before {
 	border-left: 60px solid transparent;
 	border-right: 60px solid transparent;
 	border-bottom: 30px solid #3D3D3D;
 }
-#stamp .hexagon:after {
+.stamp .hexagon:after {
 	border-color: #3D3D3D;
 }
 
@@ -651,22 +663,22 @@ ul.contact li a.icon-rss:before
 /* Featured                                                                      */
 /*********************************************************************************/
 
-#featured-wrapper
+.featured-wrapper
 {
 	overflow: hidden;
-	padding: 10em 0em;
     margin-left: auto;
     margin-right: auto;
 	background: #FFF;
     text-align: left;
+    padding: 0 10%;
 }
 
-#featured
+.featured
 {
 	overflow: hidden;
 }
 
-#featured .major
+.featured .major
 {
 	overflow: hidden;
 	margin-bottom: 3em;
@@ -674,34 +686,34 @@ ul.contact li a.icon-rss:before
 	border-bottom: 1px solid #E8E8E8;
 }
 
-#featured .major h2
+.featured .major h2
 {
 	font-size: 3em;
 }
 
-#featured .major .byline
+.featured .major .byline
 {
 	font-size: 1.3em;
 }
 
-#featured .title
+.featured .title
 {
 	margin-bottom: 1.5em;
 	padding-bottom: 1.5em;
 	border-bottom: 1px solid #E3E3E3;
 }
 
-#featured .title h2
+.featured .title h2
 {
 	font-size: 1.2em;
 }
 
-#featured h2
+.featured h2
 {
 	text-align: center;
 }
 
-#featured .icon
+.featured .icon
 {
 	position: relative;
 	display: inline-block;
@@ -737,7 +749,7 @@ ul.contact li a.icon-rss:before
 }
 
 
-	#header-featured
+	.header-featured
 	{
 		height: 30em;
 		background-image: url(images/banner.jpg);
@@ -746,28 +758,28 @@ ul.contact li a.icon-rss:before
 	}
 
 
-#slider-wrapper
+.slider-wrapper
 {
 	padding: 6em 0em;
 	background: #DB3256;
 }
 
-#slider
+.slider
 {
 	margin: 0em auto 0em auto;
 	width: 1200px;
 	position: relative;
 }
 
-#slider .button
+.slider .button
 {
 }
 
-#slider .button:hover
+.slider .button:hover
 {
 }
 
-#slider .viewer
+.slider .viewer
 {
 	width: 1000px;
 	height: 375px;
@@ -775,20 +787,20 @@ ul.contact li a.icon-rss:before
 	overflow: hidden;
 }
 
-#slider .viewer .reel
+.slider .viewer .reel
 {
 	display: none;
 	height: 375px;
 }
 
-#slider .viewer .reel .slide
+.slider .viewer .reel .slide
 {
 	position: relative;
 	width: 1000px;
 	height: 375px;
 }
 
-#slider .viewer .reel h2
+.slider .viewer .reel h2
 {
 	position: absolute;
 	top: 130px;
@@ -804,7 +816,7 @@ ul.contact li a.icon-rss:before
 	font-size: 2.25em;
 }
 
-#slider .viewer .reel p
+.slider .viewer .reel p
 {
 	position: absolute;
 	top: 210px;
@@ -820,32 +832,32 @@ ul.contact li a.icon-rss:before
 	font-size: 1.1em;
 }
 
-#slider .icon
+.slider .icon
 {
 	font-size: 4em;
 	color: #FFF;
 }
 
-#slider .previous-button
+.slider .previous-button
 {
 	position: absolute;
 	top: 150px;
 	left: 0;
 }
 
-#slider .next-button
+.slider .next-button
 {
 	position: absolute;
 	top: 150px;
 	right: 0;
 }
 
-#slider .indicator
+.slider .indicator
 {
 	margin: 30px auto 0 auto;
 }
 
-#slider .indicator ul
+.slider .indicator ul
 {
 	list-style: none;
 	padding: 0;
@@ -853,7 +865,7 @@ ul.contact li a.icon-rss:before
 	text-align: center;
 }
 
-#slider .indicator ul li
+.slider .indicator ul li
 {
 	display: inline-block;
 	width: 12px;
@@ -866,7 +878,7 @@ ul.contact li a.icon-rss:before
 	border-top: solid 1px #909090;
 }
 
-#slider .indicator ul li.active
+.slider .indicator ul li.active
 {
 	background: #505050;
 	border-top: solid 1px #505050;
@@ -876,22 +888,22 @@ ul.contact li a.icon-rss:before
 /* Footer                                                                        */
 /*********************************************************************************/
 
-#footer-wrapper
+.footer-wrapper
 {
 	overflow: hidden;
-	padding: 7em 0em;
-	color: rgba(255,255,255,0.5);
+	padding: 2em 0em;
+	background: #3D3D3D;
 }
 
 
-#footer .title h2
+.footer .title h2
 {
 	font-size: 2em;
 	font-weight: 300;
 	color: #FFF;
 }
 
-#footer .title .byline
+.footer .title .byline
 {
 	display: block;
 	padding-top: 1em;
@@ -900,23 +912,23 @@ ul.contact li a.icon-rss:before
 	color: rgba(255,255,255,0.5);
 }
 
-#footer .column1,
-#footer .column2
+.footer .column1,
+.footer .column2
 {
 	width: 560px;
 }
 
-#footer .column1
+.footer .column1
 {
 	float: left;
 }
 
-#footer .column2
+.footer .column2
 {
 	float: right;
 }
 
-#footer .button
+.footer .button
 {
 	margin-top: 2em;
 }
@@ -956,21 +968,20 @@ ul.contact li a.icon-rss:before
 	font-size: 0.80em;
 }
 
-.extra2 .ebox1,
-.extra2 .ebox2
+.extra2 .ebox,
 {
-	padding: 0em 2em;
+	padding: 0em 5em;
 }
 
-.extra2  .ebox1
+.extra2 .spacer
 {
+	padding: 5em 0em;
 }
 
-.extra2 .ebox2
+.extra2 .small-spacer
 {
-	margin-top: 10em;
+	padding: 3em 0em;
 }
-
 .hexagon {
 	margin: 0 auto 2em auto;
 	width: 120px;
@@ -1005,24 +1016,24 @@ ul.contact li a.icon-rss:before
 	border-top: 30px solid #FFC000;
 }
 
-#portfolio
+.portfolio
 {
 	text-align: center;
 }
 
-#portfolio .title
+.portfolio .title
 {
 	margin-bottom: 1.5em;
 	padding-bottom: 1.5em;
 	border-bottom: 1px solid #E3E3E3;
 }
 
-#portfolio .title h2
+.portfolio .title h2
 {
 	font-size: 1.2em;
 }
 
-#portfolio h2
+.portfolio h2
 {
 	text-align: center;
 }

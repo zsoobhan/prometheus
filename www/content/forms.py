@@ -12,7 +12,8 @@ class ContactForm(forms.ModelForm):
 
     answer = forms.IntegerField(
         required=True,
-        label="Answer the simple sum to prove you're human")
+        help_text="Answer the simple sum to prove you're human.",
+        label="Answer")
 
     def clean_robots_check_this(self):
         # Only robots are likely to see this field.
