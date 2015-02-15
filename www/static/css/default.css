@@ -412,13 +412,15 @@ ul.style3 .icon
 		text-transform: uppercase;
 		outline: 0;
 		color: #FFF;
+        -webkit-transition: all 0.7s ease;
+        transition: all 0.7s ease;
 	}
 	
 	.menu li:hover a,
     .menu li.active a, 
     .menu li.active span
 	{
-	text-shadow: 30px 0 30px #fff;
+	text-shadow: 30px 30px 30px 30px #fff;
     }
 	
 	#menu .current_page_item a

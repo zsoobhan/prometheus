@@ -1,19 +1,19 @@
 /* MESSAGES */
 
 ul.messagelist {
-    padding: 0;
+    color:#FFFFFF;
+    padding: 3pt 0 0 0;
     margin: 0;
 }
 
-
 ul.messagelist li {
-    border-bottom: 12px none;
-    color: #888;
-    display: block;
+    display: inline-block;
+    position:relative;
+    vertical-align: middle;
+    padding: 2px 2px 10px 10px;
     font-size: 20px;
     font-weight: bold;
-    margin: 0 0 3px;
-    padding: 10px 10px 10px 25px;
+    margin: 0 0 0px;
 }
 ul.messagelist li.warning {
 }
@@ -22,4 +22,15 @@ ul.messagelist li.success {
 }
 
 ul.messagelist li.error {
+}
+
+ul.messagelist li.success i.icon {
+    color: #FFC000;
+}
+
+ul.messagelist li.warning i.icon {
+}
+
+ul.messagelist li.error i.icon {
+    color: red;
 }
