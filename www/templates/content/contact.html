@@ -24,20 +24,23 @@
             <div class="contact-form">
                 <form action="." method="POST">
                     {% csrf_token %}
-                    {# Include the visible fields only #}
-                    {% for field in form.visible_fields %}
-                        {% if field.name == "answer" %}
-                            <label for="id_answer">{{ QUESTION }}:</label>
-                            {{ field }}
-                        {% else %}
-                            {{ field.label_tag }}
-                            {{ field }}
-                        {% endif %}
-                        {{ field.errors }}
-                    {% endfor %}
-                    {% for hidden in form.hidden_fields %}
-                        {{ hidden }}
-                    {% endfor %}
+                    <span class='fields'>
+                        {# Include the visible fields only #}
+                        {% for field in form.visible_fields %}
+                            {% if field.name == "answer" %}
+                                <label for="id_answer">{{ QUESTION }}:</label>
+                                {{ field }}
+                            {% else %}
+                                {{ field.label_tag }}
+                                {{ field }}
+                            {% endif %}
+                            {{ field.errors }}
+                        {% endfor %}
+                        {# render hidden fields without error #}
+                        {% for hidden in form.hidden_fields %}
+                            {{ hidden }}
+                        {% endfor %}
+                    </span>
                     <input id="contact-js" class="button" type="submit" value="Submit" data-target="contact-submit"/>
                 </form>
             </div>
