@@ -79,7 +79,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     # Custom middleware
     'content.middleware.QuestionMiddleware',
 )
@@ -97,7 +96,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin.apps.SimpleAdminConfig',
-    'django.contrib.flatpages',
     'django.contrib.staticfiles',
     'django_extensions',
     'debug_toolbar',

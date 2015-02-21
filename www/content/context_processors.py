@@ -1,4 +1,4 @@
-import settings
+from django.conf import settings
 
 
 def add_ga_tracking_code(request):

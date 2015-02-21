@@ -2,6 +2,7 @@ from django.views import generic
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse_lazy
+
 from . import forms
 
 

@@ -1,7 +1,7 @@
 from django.template import loader
 from django.core.mail import send_mail
 
-import settings
+from django.conf import settings
 
 
 def notify(sender, instance, created, *args, **kwargs):
