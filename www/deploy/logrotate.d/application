@@ -7,4 +7,5 @@
     notifempty
     create 640 www-data www-data
     sharedscripts
+    su www-data www-data
 }
