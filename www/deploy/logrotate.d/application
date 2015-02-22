@@ -1,4 +1,4 @@
-/var/www/{{ client }}/{{ project_code }}/logs/**/*.log {
+/var/www/zsoobhan/prometheus/logs/**/*.log {
     weekly
     missingok
     rotate 10

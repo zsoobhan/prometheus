@@ -149,7 +149,8 @@ def move_confs():
     notify('Copying nginx and supervisor confs from deploy folder.')
     cmds = [
         'cp deploy/nginx/%(build)s.conf /etc/nginx/sites-enabled/',
-        'cp deploy/supervisord/%(build)s.conf /etc/supervisor/conf.d/']
+        'cp deploy/supervisord/%(build)s.conf /etc/supervisor/conf.d/',
+        'cp deploy/logrotate.d/application /etc/logrotate.d/app.%(build)s']
     with cd(env.code_dir):
         [sudo(cmd % env) for cmd in cmds]
 
