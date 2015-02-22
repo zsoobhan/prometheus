@@ -8,7 +8,8 @@ class Communication(models.Model):
 
     email = models.EmailField(max_length=254)
     message = models.TextField(
-        help_text="Your message goes here.")
+        help_text="Your message goes here.",
+        max_length=4096)
     name = models.CharField(
         max_length=64,
         help_text="Your name goes here.")

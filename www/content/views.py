@@ -32,7 +32,3 @@ class HomeView(generic.TemplateView):
 
 class InfrastructureView(generic.TemplateView):
     template_name = 'content/infrastructure.html'
-
-
-class BlogView(generic.TemplateView):
-    template_name = 'content/blog.html'
