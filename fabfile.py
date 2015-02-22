@@ -146,7 +146,8 @@ def unpack():
 
 
 def move_confs():
-    notify('Copying nginx and supervisor confs from deploy folder.')
+    notify('Copyting Nginx, Supervisor and Logrotate confs to their '
+           'respective destinations')
     cmds = [
         'cp deploy/nginx/%(build)s.conf /etc/nginx/sites-enabled/',
         'cp deploy/supervisord/%(build)s.conf /etc/supervisor/conf.d/',

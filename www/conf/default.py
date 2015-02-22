@@ -31,6 +31,7 @@ STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Email Settings
+SERVER_EMAIL = 'django@zsoobhan.co.uk'
 DEFAULT_FROM_EMAIL = 'app@zsoobhan.co.uk'
 COMMUNICATION_EMAIL = 'zsoobhan@gmail.com'
 
