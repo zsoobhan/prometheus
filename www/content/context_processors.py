@@ -6,6 +6,7 @@ def add_ga_tracking_code(request):
 
 
 def add_robots_question(request):
-    q_and_a = request.session.get('q_and_a')
+    q_and_a = request.session.get('q_and_a', None)
     if q_and_a:
         return {'QUESTION': q_and_a['question']}
+    return {}
