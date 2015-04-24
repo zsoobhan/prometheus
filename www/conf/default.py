@@ -5,7 +5,7 @@ import sys
 location = lambda *path: os.path.join(
     os.path.dirname(os.path.realpath(__file__)), '..', *path)
 
-DEBUG = False
+DEBUG = TEMPLATE_DEBUG = False
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
