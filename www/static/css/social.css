@@ -16,7 +16,6 @@
     color: #6c6c6c;
     float: none;
     text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.08);
     width: 960px;
     margin: 0 auto;
 	overflow: hidden;
@@ -57,11 +56,13 @@
     color: #FFF;
 }
 
-.social .triangle-up {
-	margin: 0 auto;
-	width: 0;
-	height: 0;
-	border-left: 60px solid transparent;
-	border-right: 60px solid transparent;
-	border-top: 30px solid #3D3D3D;
+
+.triangle-grey {
+    border-bottom: 30px solid #3d3d3d;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-top: 30px solid transparent;
+    height: 0;
+    margin: 0 auto;
+    width: 0;
 }
