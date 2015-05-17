@@ -69,3 +69,12 @@
     color: #FFF;
 }
 
+.triangle-grey {
+    border-bottom: 30px solid #3d3d3d;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-top: 30px solid transparent;
+    height: 0;
+    margin: 0 auto;
+    width: 0;
+}
