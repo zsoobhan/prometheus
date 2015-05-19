@@ -99,12 +99,9 @@ INSTALLED_APPS = [
     'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.staticfiles',
     'django_extensions',
-    'debug_toolbar',
     'compressor',
-]
 
-# Prometheus Apps go here
-INSTALLED_APPS += [
+    # Prometheus Apps go here
     'content',
     'blog',
 ]

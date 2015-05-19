@@ -3,6 +3,11 @@ from conf.default import *  # noqa
 # All debugging activated
 DEBUG = TEMPLATE_DEBUG = True
 
+INSTALLED_APPS += [
+    'debug_toolbar',
+    'template_debug',
+]
+
 # Output emails to console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -39,9 +44,13 @@ CACHES = {
     }
 }
 
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+
+# Don't compress assets
 COMPRESS_ENABLED = False
-SECRET_KEY = 'somereallylongstring'
+SECRET_KEY = 'some-long-string'
 
 DEBUG_TOOLBAR_PATCH_SETTINGS = True
+
 # Google Analytics
-GA_TRACKING_CODE = 'XXXXX-XXXX'
+GA_TRACKING_CODE = 'XXXXX-XXXX' 
