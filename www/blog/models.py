@@ -38,6 +38,7 @@ class BlogEntry(models.Model):
     subtitle = models.CharField(blank=True, max_length=4096)
     content = RichTextField(blank=True)
     tags = models.ManyToManyField(Tag, related_name='blog_entries')
+    meta_description = models.TextField(blank=True, max_length=1024)
 
     class Meta:
         get_latest_by = 'date_published'

@@ -13,6 +13,14 @@ class BlogAdmin(admin.ModelAdmin):
         'date',
         'date_published',
         'is_active']
+    readonly_fields = ['date_created']
+    fieldsets = (
+        ('Internal', {'classes': ('collapse',),
+                      'fields': ('date_created', 'slug',
+                                 'status', 'date_published')}),
+        ('Meta', {'fields': ('date', 'meta_description', 'tags')},),
+        ('Content', {'fields': ('title', 'subtitle', 'content')},)
+    )
 
 
 @admin.register(models.Tag)

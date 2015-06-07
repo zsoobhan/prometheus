@@ -2,7 +2,7 @@
 {% load i18n  staticfiles %}
 
 {% block title %}{% trans "Ziyad Soobhan" %} | Blog | {{ object.title }}{% endblock %}
-{% block description %}{% trans "Blog" %}{% endblock %}
+{% block description %}{{ object.meta_description|safe }}{% endblock %}
 {% block keywords %}{% trans "Blog" %}{% endblock %}
 {% block body_class %}wrapper{% endblock %}
 
