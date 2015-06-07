@@ -10,6 +10,16 @@ STATUS_CHOICES = [
     (DRAFT, 'Draft')]
 
 
+class Tag(models.Model):
+    title = models.CharField(max_length=4096)
+    slug = models.SlugField(max_length=4096, unique=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+    blurb = models.TextField(blank=True)
+
+    def __unicode__(self):
+        return u'{slug}'.format(slug=self.slug)
+
+
 class BlogEntry(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     date_published = models.DateTimeField(null=True, blank=True, db_index=True)
@@ -23,9 +33,10 @@ class BlogEntry(models.Model):
         choices=STATUS_CHOICES,
         default=DRAFT)
     title = models.CharField(max_length=4096)
-    slug = models.SlugField(max_length=4096)
+    slug = models.SlugField(max_length=4096, unique=True)
     subtitle = models.CharField(blank=True, max_length=4096)
     content = models.TextField(blank=True)
+    tags = models.ManyToManyField(Tag, related_name='blog_entries')
 
     class Meta:
         get_latest_by = 'date_published'
@@ -34,8 +45,7 @@ class BlogEntry(models.Model):
         verbose_name_plural = "Blog Entries"
 
     def __unicode__(self):
-        return u'<BlogEntry:{slug} -- {date}>'.format(
-            slug=self.slug, date=self.date_created.date())
+        return u'slug'.format(slug=self.slug)
 
     @property
     def is_active(self):

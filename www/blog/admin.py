@@ -13,3 +13,13 @@ class BlogAdmin(admin.ModelAdmin):
         'date',
         'date_published',
         'is_active']
+
+
+@admin.register(models.Tag)
+class TagAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('title',)}
+    search_fields = ['slug', 'title', 'date_created', 'blurb']
+    list_display = [
+        'slug',
+        'title',
+        'date_created']

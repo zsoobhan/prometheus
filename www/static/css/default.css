@@ -294,6 +294,14 @@ ul.style3 .icon
 	font-size: 1.1em;
 	color: #6F6F6F;
 }
+.title .tag
+{
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 1.0em;
+	color: #6F6F6F;
+}
 
 /*********************************************************************************/
 /* Header                                                                        */

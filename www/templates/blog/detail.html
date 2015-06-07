@@ -17,6 +17,7 @@
             <div class="title{% if not object.is_active %} preview{% endif %}">
                 <h2>{{ object.title }}</h2>
                 <span class="byline">{{ object.subtitle }}</span>
+                <p class="tag">{% for tag in object.tags.all %}{{ tag }} {% endfor %}</p>
             </div>
             <div class="blog-content">{{ object.content|safe }}</div>
         </div>

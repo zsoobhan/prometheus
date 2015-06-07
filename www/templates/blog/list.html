@@ -19,6 +19,7 @@
                     <div class="title">
                         <a href="{{ blog_entry.get_absolute_url }}"><h2>{{ blog_entry.title }}</h2></a>
                         <span class="byline">{% if blog_entry.date %}{{ blog_entry.date}}{% endif %}</span>
+                        <p class="tag">{% for tag in blog_entry.tags.all %}{{ tag }} {% endfor %}</p>
                     </div>
                     <p>{{ blog_entry.subtitle }}</p>
                 </div>

@@ -9,7 +9,8 @@ class BlogEntryListView(generic.ListView):
     model = models.BlogEntry
     queryset = models.BlogEntry.objects.filter(status=models.PUBLISHED)
     context_object_name = 'active_blog_entries'
-    paginate_by = 3
+    paginate_by = 10
+    queryset = models.BlogEntry.objects.all().prefetch_related('tags')
 
     def get_queryset(self):
         'return the active blog entries'
