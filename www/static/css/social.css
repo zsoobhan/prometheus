@@ -4,8 +4,6 @@
 
 .social{
 
-	overflow: hidden;
-    background: #3D3D3D;
 }
 
 
@@ -13,12 +11,27 @@
 {
     margin: 0px auto;
 	overflow: hidden;
+    background: #3D3D3D;
+	overflow: hidden;
     color: #6c6c6c;
     float: none;
     text-align: center;
     width: 960px;
     margin: 0 auto;
 	overflow: hidden;
+}
+
+
+/* work in progress */
+.grey-triangle-up {
+	margin: 0 auto;
+	width: 0;
+    background: #FFF;
+	height: 0;
+	border-left: 60px solid transparent;
+	border-right: 60px solid transparent;
+	border-top: 30px solid transparent;
+	border-bottom: #6c6c6c;
 }
 
 
@@ -55,7 +68,6 @@
     text-decoration:none;
     color: #FFF;
 }
-
 
 .triangle-grey {
     border-bottom: 30px solid #3d3d3d;

@@ -294,6 +294,14 @@ ul.style3 .icon
 	font-size: 1.1em;
 	color: #6F6F6F;
 }
+.title .tag
+{
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 1.0em;
+	color: #6F6F6F;
+}
 
 /*********************************************************************************/
 /* Header                                                                        */
@@ -985,6 +993,11 @@ ul.contact li a.icon-rss:before
 {
 	padding: 3em 0em;
 }
+
+.extra2 .tiny-spacer
+{
+	padding: 1em 0em;
+}
 .hexagon {
 	margin: 0 auto 2em auto;
 	width: 120px;
@@ -1039,4 +1052,10 @@ ul.contact li a.icon-rss:before
 .portfolio h2
 {
 	text-align: center;
+}
+
+
+.preview h2
+{
+	color: #F00;
 }

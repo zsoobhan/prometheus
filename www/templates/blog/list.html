@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Ziyad Soobhan | Blog" %}{% endblock %}
+{% block description %}{% trans "Ziyad Soobhan's Blog" %}{% endblock %}
+{% block keywords %}{% trans "Blog" %}{% endblock %}
+{% block body_class %}wrapper{% endblock %}
+
+{% block content %}
+<div class="featured-wrapper">
+    <div class="extra2">
+        <div class="small-spacer"></div>
+        <div class="hexagon"><span class="icon fa-align-left"></span> </div>
+
+
+        {% if active_blog_entries %}
+            {% for blog_entry in active_blog_entries %}
+                <div class="ebox blog">
+                    <div class="title">
+                        <a href="{{ blog_entry.get_absolute_url }}"><h2>{{ blog_entry.title }}</h2></a>
+                        <span class="byline">{% if blog_entry.date %}{{ blog_entry.date}}{% endif %}</span>
+                        <p class="tag">{% for tag in blog_entry.tags.all %}{{ tag }} {% endfor %}</p>
+                    </div>
+                    <p>{{ blog_entry.subtitle }}</p>
+                </div>
+                <div class="small-spacer"></div>
+            {% endfor %}
+            {% if page_obj.has_next or page_obj.has_previous %}
+                <div class="pagination">
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        {% endif %}
+                    </span>
+                </div>
+            {% endif %}
+
+
+
+        {% else %}
+            <div class="ebox">
+                <div class="title">
+                    <h2>Blog</h2>
+                    <span class="byline">Warning, here be dragons</span>
+                </div>
+                <p> Blog entries coming soon...</p>
+            </div>
+            <div class="spacer"></div>
+        {% endif %}
+
+
+
+
+        <div class="triangle-grey"></div>
+    </div>
+</div>
+
+{% endblock %}
+

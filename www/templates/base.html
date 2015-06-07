@@ -48,8 +48,9 @@
         {% block js %}
             <script src="{% static "js/jquery.min.js" %}"></script>
             <script src="{% static "js/watchmen.js" %}"></script>
-        {% include 'partials/google_analytics.html' %}
+            {% include 'partials/google_analytics.html' %}
         {% endblock js %}
+        {% block extrascripts %}{% endblock extrascripts %}
 
     {% endblock body %}
     </body>

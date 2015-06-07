@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n  staticfiles %}
+
+{% block title %}{% trans "Ziyad Soobhan" %} | Blog | {{ object.title }}{% endblock %}
+{% block description %}{{ object.meta_description|safe }}{% endblock %}
+{% block keywords %}{% trans "Blog" %}{% endblock %}
+{% block body_class %}wrapper{% endblock %}
+
+{% block content %}
+
+
+<div class="featured-wrapper">
+    <div class="extra2">
+        <div class="small-spacer"></div>
+        <div class="ebox blog">
+            <div class="hexagon"><span class="icon {% if object.icon%}{{ object.icon }}{% else %}fa-align-right{% endif %}"></span> </div>
+            <div class="title{% if not object.is_active %} preview{% endif %}">
+                <h2>{{ object.title }}</h2>
+                <span class="byline">{{ object.subtitle }}</span>
+                <p class="tag">{% for tag in object.tags.all %}{{ tag }} {% endfor %}</p>
+            </div>
+            <div class="blog-content">{{ object.content|safe }}</div>
+        </div>
+        <div class="tiny-spacer"></div>
+        <a id="fb-share-link-js" data-target="{{ object.get_ga_label }}" href="#"><i class="fa fa-facebook-square"></i></a>
+
+        <div class="spacer"></div>
+        <div class="triangle-grey"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extrascripts %}
+    <script src="{% static "js/share_icons.js" %}"></script>
+{% endblock extrascripts %}

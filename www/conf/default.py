@@ -5,7 +5,7 @@ import sys
 location = lambda *path: os.path.join(
     os.path.dirname(os.path.realpath(__file__)), '..', *path)
 
-DEBUG = False
+DEBUG = TEMPLATE_DEBUG = False
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
@@ -96,16 +96,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'django.contrib.admin.apps.SimpleAdminConfig',
+    'flat',
+    'ckeditor',
+    'django.contrib.admin',
     'django.contrib.staticfiles',
     'django_extensions',
-    'debug_toolbar',
     'compressor',
-]
 
-# Prometheus Apps go here
-INSTALLED_APPS += [
+    # Prometheus Apps go here
     'content',
+    'blog',
 ]
 
 # Use cached sessions by default
@@ -201,6 +201,15 @@ def create_logging_dict(root):
             },
         }
     }
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'uiColor': '#79aec8',
+        'toolbarCanCollapse': 'true',
+    },
+}
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 # Debug toolbar settings
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
