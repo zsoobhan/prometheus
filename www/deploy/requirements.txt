@@ -1,4 +1,4 @@
-Django==1.7.8
+Django>=1.7.8,<1.8
 Fabric==1.8.3
 Werkzeug==0.9.4
 argparse==1.2.1
@@ -21,3 +21,4 @@ uWSGI==2.0.9
 factory-boy==2.5.2
 django-template-debug==0.3.5
 django-flat-theme==0.9.3
+django-ckeditor==4.4.8

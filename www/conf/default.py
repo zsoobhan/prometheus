@@ -97,6 +97,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'flat',
+    'ckeditor',
     'django.contrib.admin',
     'django.contrib.staticfiles',
     'django_extensions',
@@ -200,6 +201,15 @@ def create_logging_dict(root):
             },
         }
     }
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'uiColor': '#79aec8',
+        'toolbarCanCollapse': 'true',
+    },
+}
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 # Debug toolbar settings
 DEBUG_TOOLBAR_PATCH_SETTINGS = False

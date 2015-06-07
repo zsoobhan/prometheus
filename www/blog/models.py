@@ -1,3 +1,4 @@
+from ckeditor.fields import RichTextField
 from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django.db import models
@@ -14,7 +15,7 @@ class Tag(models.Model):
     title = models.CharField(max_length=4096)
     slug = models.SlugField(max_length=4096, unique=True)
     date_created = models.DateTimeField(auto_now_add=True)
-    blurb = models.TextField(blank=True)
+    blurb = RichTextField(blank=True)
 
     def __unicode__(self):
         return u'{slug}'.format(slug=self.slug)
@@ -35,7 +36,7 @@ class BlogEntry(models.Model):
     title = models.CharField(max_length=4096)
     slug = models.SlugField(max_length=4096, unique=True)
     subtitle = models.CharField(blank=True, max_length=4096)
-    content = models.TextField(blank=True)
+    content = RichTextField(blank=True)
     tags = models.ManyToManyField(Tag, related_name='blog_entries')
 
     class Meta:
