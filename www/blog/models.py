@@ -39,6 +39,10 @@ class BlogEntry(models.Model):
     content = RichTextField(blank=True)
     tags = models.ManyToManyField(Tag, related_name='blog_entries')
     meta_description = models.TextField(blank=True, max_length=1024)
+    icon = models.CharField(
+        max_length=64,
+        help_text='The font awesome icon to be displayed',
+        default='fa-align-right')
 
     class Meta:
         get_latest_by = 'date_published'

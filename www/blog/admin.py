@@ -18,7 +18,7 @@ class BlogAdmin(admin.ModelAdmin):
         ('Internal', {'classes': ('collapse',),
                       'fields': ('date_created', 'slug',
                                  'status', 'date_published')}),
-        ('Meta', {'fields': ('date', 'meta_description', 'tags')},),
+        ('Meta', {'fields': ('date', 'meta_description', 'icon', 'tags')},),
         ('Content', {'fields': ('title', 'subtitle', 'content')},)
     )
 

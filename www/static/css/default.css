@@ -294,14 +294,6 @@ ul.style3 .icon
 	font-size: 1.1em;
 	color: #6F6F6F;
 }
-.title .tag
-{
-	letter-spacing: 0.15em;
-	text-transform: uppercase;
-	font-weight: 500;
-	font-size: 1.0em;
-	color: #6F6F6F;
-}
 
 /*********************************************************************************/
 /* Header                                                                        */
@@ -1055,7 +1047,46 @@ ul.contact li a.icon-rss:before
 }
 
 
-.preview h2
+
+/*********************************************************************************/
+/* Blog                                                                        */
+/*********************************************************************************/
+
+
+
+.blog h2
+{
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+}
+
+.blog h1
+{
+    font-size: 1.6em;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+}
+
+
+.blog .title h2
+{
+	font-weight: 400;
+	font-size: 2.8em;
+	color: #323232;
+}
+
+.blog .tag
+{
+	letter-spacing: 0.1em;
+	text-transform: lowercase;
+    font-style: italic;
+	font-weight: 400;
+	font-size: 1.0em;
+	color: #6F6F6F;
+}
+
+.blog .preview h2
 {
 	color: #F00;
 }

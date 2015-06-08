@@ -14,11 +14,12 @@
     <div class="extra2">
         <div class="small-spacer"></div>
         <div class="ebox blog">
-            <div class="hexagon"><span class="icon {% if object.icon%}{{ object.icon }}{% else %}fa-align-right{% endif %}"></span> </div>
+            <div class="hexagon"><span class="icon {{ object.icon }}"></span> </div>
             <div class="title{% if not object.is_active %} preview{% endif %}">
                 <h2>{{ object.title }}</h2>
                 <span class="byline">{{ object.subtitle }}</span>
-                <p class="tag">{% for tag in object.tags.all %}{{ tag }} {% endfor %}</p>
+                <div class="date">{% if object.date %}{{ object.date}}{% endif %}</div>
+                <div class="tag">{% for tag in object.tags.all %}{{ tag }} {% endfor %}</div>
             </div>
             <div class="blog-content">{{ object.content|safe }}</div>
         </div>
