@@ -23,7 +23,7 @@ def _configure(build_name):
 
 def prod():
     _configure('prod')
-    env.hosts = ['ec2-54-77-186-157.eu-west-1.compute.amazonaws.com']
+    env.hosts = ['ec2-54-154-143-128.eu-west-1.compute.amazonaws.com']
     env.remote_user = 'ubuntu'
 
 
