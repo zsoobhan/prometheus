@@ -102,6 +102,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'compressor',
+    'storages',
+    's3direct',
 
     # Prometheus Apps go here
     'content',
