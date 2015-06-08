@@ -29,12 +29,14 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 
-# s3Boto and s3 direct
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-AWS_ACCESS_KEY_ID = 'XXXXXXXXXXXXXXXXXXXX'
-AWS_SECRET_ACCESS_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-AWS_BUCKET_NAME = AWS_STORAGE_BUCKET_NAME = 'XXXXXXXX'
+# s3 settings
+STATIC_ROOT = '/static/'
+STATICFILES_DIRS = (
+    'static/',
+)
+AWS_ACCESS_KEY_ID = 'xxxxxxxxxxxxxxxxxxxx'
+AWS_SECRET_ACCESS_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+AWS_BUCKET_NAME = AWS_STORAGE_BUCKET_NAME = 'xxxxxxxxx'
 AWS_QUERYSTRING_AUTH = False
 AWS_PRELOAD_METADATA = True
 AWS_HEADERS = {
@@ -42,12 +44,16 @@ AWS_HEADERS = {
     'Cache-Control': 'max-age=86400',
 }
 
-# s3direct settings
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
 S3DIRECT_REGION = 'eu-west-1'
 S3DIRECT_DESTINATIONS = {
     'uploads': ('uploads', lambda u: u.is_staff,),
 }
-
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_LOCATION = 'static'
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 
 PREPEND_WWW = True
 LOGGING = create_logging_dict(location('../../logs/prod'))
