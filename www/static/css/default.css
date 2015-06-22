@@ -1090,3 +1090,8 @@ ul.contact li a.icon-rss:before
 {
 	color: #F00;
 }
+
+.blog .center
+{
+    text-align: center
+}
