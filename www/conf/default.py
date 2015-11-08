@@ -103,7 +103,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'compressor',
     'storages',
-    's3direct',
 
     # Prometheus Apps go here
     'content',
