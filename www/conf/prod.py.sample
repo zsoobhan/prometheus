@@ -30,26 +30,15 @@ EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 
 # s3 settings
-STATIC_ROOT = '/static/'
-STATICFILES_DIRS = (
-    'static/',
-)
+# s3direct settings
 AWS_ACCESS_KEY_ID = 'xxxxxxxxxxxxxxxxxxxx'
 AWS_SECRET_ACCESS_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-AWS_BUCKET_NAME = AWS_STORAGE_BUCKET_NAME = 'xxxxxxxxx'
-AWS_QUERYSTRING_AUTH = False
-AWS_PRELOAD_METADATA = True
-AWS_HEADERS = {
-    'Expires': 'Thu, 19 Apr 2040 20:00:00 GMT',
-    'Cache-Control': 'max-age=86400',
-}
-
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+AWS_STORAGE_BUCKET_NAME = 'xxxxxxxxx'
 S3DIRECT_REGION = 'eu-west-1'
 S3DIRECT_DESTINATIONS = {
     'uploads': ('uploads', lambda u: u.is_staff,),
 }
+
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
