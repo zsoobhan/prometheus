@@ -10,3 +10,9 @@ class AuthorAdmin(admin.ModelAdmin):
         'email',
         'date_created',
         'phone_number']
+
+
+@admin.register(models.Upload)
+class UploadAdmin(admin.ModelAdmin):
+    list_display = ['name', 'upload_file', 'date_created']
+    readonly_fields = ['date_created']
