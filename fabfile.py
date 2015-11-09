@@ -93,6 +93,8 @@ def provision_server():
         'install -y libproj-dev',
         'install -y memcached',
         'install -y nginx',
+        'install -y postgresql',
+        'install -y postgresql-contrib',
         ]
     provision = prompt(red('Provision Server? [y/N]'))
     if provision.strip() in ['y', 'Y']:

@@ -13,6 +13,6 @@ class AuthorAdmin(admin.ModelAdmin):
 
 
 @admin.register(models.Upload)
-class JSUploadAdmin(admin.ModelAdmin):
+class UploadAdmin(admin.ModelAdmin):
     list_display = ['name', 'upload_file', 'date_created']
     readonly_fields = ['date_created']
