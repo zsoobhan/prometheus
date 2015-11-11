@@ -11,7 +11,7 @@ TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 ATOMIC_REQUESTS = True
 
-LANGUAGE_CODE = 'GB'
+LANGUAGE_CODE = 'en-gb'
 
 SITE_ID = 1
 
