@@ -18,34 +18,39 @@
                 </div>
                 <p>
                     I am a web-developer with an MSci in Astrophysics as well as an avid rock-climber.
-                    My work involves the implementation and maintenance of solutions primarily engineered in Python and Django 
-                    which has lead to me being exposed to various mechanisms of content delivery. 
+                    My work involves the implementation and maintenance of solutions primarily engineered in Python.
+                    which has lead to me being exposed to various mechanisms of content delivery.
                     I work with various web technologies such as WSGI, Nginx, Apache, VirtualEnv and am particularly
-                    interested in using Django as well as Docker. When not at work, I most probably can be found at my local
-                    climbing wall where I train three to four times a week. 
+                    interested in using frameworks such Django as well as the rest of the stack. When not at work,
+                    I most probably can be found at my local climbing wall where I train three to four times a week.
                 <p>
-            </div>		
+            </div>
 
             <div class="spacer"></div>
 
             <div class="ebox">
                 <div class="hexagon">
-                      <i class="icon fa-flask "></i>
+                      <i class="icon fa-wrench"></i>
                 </div>
                 <div class="title">
-                    <h2>Status: Under Construction</h2>
+                    <h2>Infrastructure</h2>
+                    <span class="byline">nginx, supervisor, uWSGI, virtualenv, django</span>
                 </div>
                 <p>
-                   This website is currently under development so there may be a 
-                   few styling atrocities here and there. For more information with 
-                   regards to the status of the site, check my twitter feed or github 
-                   repository, both whose links may be found at the bottom of this page.
+                   The stack is  currently set up on a
+                   <a href="https://www.digitalocean.com/?refcode=3b0020c434de">DigitalOcean</a>
+                   droplet namespaced with a hierarchical folder structure, symlinks and a virtualenv.
+                   The codebase is deployed via a fabric script which provisions the server,
+                   migrates the database, updates the configuration files and
+                   restarts the necessary services. For more information with regards to the
+                   status of the site, check my twitter feed or github repository, both whose links
+                   may be found at the bottom of the page.
                 </p>
-            </div>		
-
+            </div>
             <div class="spacer"></div>
+
             <div class="triangle-grey"></div>
-        </div>		
+        </div>
 </div>
 
 {% endblock %}

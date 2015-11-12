@@ -28,7 +28,3 @@ class ContactFormView(generic.FormView):
 
 class HomeView(generic.TemplateView):
     template_name = 'content/home.html'
-
-
-class InfrastructureView(generic.TemplateView):
-    template_name = 'content/infrastructure.html'
