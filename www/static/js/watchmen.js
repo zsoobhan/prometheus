@@ -14,7 +14,6 @@ $('.social-icon').on('click', function() {
   ga('send', 'event', 'social', 'click', $(this).data('target'));
 });
 
-$('#source-code-button-js').on('click', function() {
-  ga('send', 'event', 'infrastructure', 'click', 'source-code');
+$('.button').on('click', function() {
+  ga('send', 'event', 'button', 'click', $(this).data('target'));
 });
-
