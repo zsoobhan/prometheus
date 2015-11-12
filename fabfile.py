@@ -81,7 +81,7 @@ def provision_server():
         'update -qq',
         'install -y build-essential',
         'install -y libpq-dev',
-        'install -y libtool',
+        'install -y libncurses-dev'
         'install -y libxml2-dev',
         'install -y libxslt1-dev',
         'install -y libgeoip-dev',
