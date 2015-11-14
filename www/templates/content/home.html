@@ -41,10 +41,11 @@
                    <a href="https://www.digitalocean.com/?refcode=3b0020c434de">DigitalOcean</a>
                    droplet namespaced with a hierarchical folder structure, symlinks and a virtualenv.
                    The codebase is deployed via a fabric script which provisions the server,
-                   migrates the database, updates the configuration files and
-                   restarts the necessary services. For more information with regards to the
-                   status of the site, check my twitter feed or github repository, both whose links
-                   may be found at the bottom of the page.
+                   migrates the database, updates the configuration files and restarts the necessary services.
+                   The web application itself is managed with supervisor and uWSGI which creates
+                   a websocket accessed and served using Nginx while all of the staticfiles are pushed and served
+                   via AWS S3.  For more information with regards to the status of the site, check my twitter
+                   feed or github repository, both whose links may be found at the bottom of the page.
                 </p>
             </div>
             <div class="spacer"></div>
