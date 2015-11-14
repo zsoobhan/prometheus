@@ -2,6 +2,8 @@
 Prometheus - http://zsoobhan.co.uk
 ==================================
 
+[![Build Status](https://travis-ci.org/zsoobhan/prometheus.svg?branch=master)](https://travis-ci.org/zsoobhan/prometheus)
+
 Introduction
 ------------
 Ziyad Soobhan's personal website/project.
