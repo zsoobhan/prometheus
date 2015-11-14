@@ -33,6 +33,7 @@ Server Stack:
   - Supervisor
   - WSGI
   - Nginx
+  - AWS S3 (static files)
 
 App:
 
