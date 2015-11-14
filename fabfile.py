@@ -2,12 +2,11 @@ import datetime
 
 from fabric.decorators import runs_once
 from fabric.operations import put, prompt
-from fabric.colors import green, white, _wrap_with, red, cyan, magenta, yellow  # noqa
 from fabric.api import local, cd, sudo
 from fabric.contrib.files import exists
+from fabric.colors import green, _wrap_with, red, cyan, magenta
 
-from fabconfig import env
-from fabconfig import prod  # noqa
+from fabconfig import env, prod
 
 
 def deploy():
@@ -51,7 +50,8 @@ def set_ssh_user():
 
 def set_branch_information():
     env.last_commit = local('git rev-parse HEAD', capture=True)
-    env.branch = local('git symbolic-ref --short HEAD', capture=True)
+    env.raw_branch_name = local('git symbolic-ref --short HEAD', capture=True)
+    env.branch = env.raw_branch_name.replace('/', '_')
     env.build_name = '%s%s' % (
         env.branch, datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S'))
     env.build_path = '/tmp/build-%(build_name)s.tar.gz' % env
@@ -64,14 +64,14 @@ def do_git_stuff():
     sync = prompt(magenta('Sync with repo? [Y/n]'))
     if sync.strip() not in ['n', 'N']:
         notify('Syncing with git repo', col=cyan)
-        notify('updating branch %(branch)s' % env)
-        local('git pull origin %(branch)s' % env)
-        local('git push origin %(branch)s' % env)
+        notify('updating branch %(raw_branch_name)s' % env)
+        local('git pull origin %(raw_branch_name)s' % env)
+        local('git push origin %(raw_branch_name)s' % env)
 
 
 def create_and_push_archive():
     notify('Zipping up and putting archive on server')
-    local('git archive --format tar %(branch)s %(web_dir)s | gzip > %(build_path)s ' % env)  # noqa
+    local('git archive --format tar %(raw_branch_name)s %(web_dir)s | gzip > %(build_path)s ' % env)  # noqa
     put(env.build_path, env.build_path)
 
 
@@ -152,9 +152,11 @@ def move_confs():
     notify('Copyting Nginx, Supervisor and Logrotate confs to their '
            'respective destinations')
     cmds = [
-        'cp deploy/nginx/%(build)s.conf /etc/nginx/sites-enabled/',
-        'cp deploy/supervisord/%(build)s.conf /etc/supervisor/conf.d/',
-        'cp deploy/logrotate.d/application /etc/logrotate.d/app.%(build)s']
+        'cp deploy/nginx/%(build)s.conf /etc/nginx/sites-enabled/%(project_code)s%(build)s.conf',  # noqa
+        'cp deploy/supervisord/%(build)s.conf /etc/supervisor/conf.d/%(project_code)s%(build)s.conf',  # noqa
+        'cp deploy/logrotate.d/application /etc/logrotate.d/app.%(project_code)s%(build)s',  # noqa
+
+    ]
     with cd(env.code_dir):
         [sudo(cmd % env) for cmd in cmds]
 

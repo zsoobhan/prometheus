@@ -50,14 +50,17 @@ STATICFILES_FINDERS = (
 
 ALLOWED_HOSTS = [
     'zsoobhan.co.uk',
-    'www.zsoobhan.co.uk']
+    'www.zsoobhan.co.uk',
+]
 
 # Use cached template loading by default
 TEMPLATE_LOADERS = (
-    ('django.template.loaders.cached.Loader', (
-        'django.template.loaders.filesystem.Loader',
-        'django.template.loaders.app_directories.Loader',
-    )),
+    (
+        'django.template.loaders.cached.Loader', (
+            'django.template.loaders.filesystem.Loader',
+            'django.template.loaders.app_directories.Loader',
+        )
+    ),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = [
@@ -142,7 +145,7 @@ def create_logging_dict(root):
         'disable_existing_loggers': False,
         'formatters': {
             'verbose': {
-                'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+                'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'  # noqa
             },
             'simple': {
                 'format': '%(levelname)s %(message)s'
@@ -215,4 +218,3 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 # Debug toolbar settings
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 INTERNAL_IPS = ('127.0.0.1',)
-
