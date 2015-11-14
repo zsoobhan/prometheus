@@ -64,16 +64,16 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = [
-    "django.contrib.auth.context_processors.auth",
-    "django.core.context_processors.request",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.media",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.static",
-    "django.contrib.messages.context_processors.messages",
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.request',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.media',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.static',
+    'django.contrib.messages.context_processors.messages',
     # custom context processors
-    "content.context_processors.add_ga_tracking_code",
-    "content.context_processors.add_robots_question"
+    'content.context_processors.add_ga_tracking_code',
+    'content.context_processors.add_robots_question'
 ]
 
 MIDDLEWARE_CLASSES = (
@@ -104,7 +104,9 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.staticfiles',
     'django_extensions',
+    'storages',
     'compressor',
+    'ckeditor_uploader',
     's3direct',
 
     # Prometheus Apps go here
@@ -113,7 +115,7 @@ INSTALLED_APPS = [
 ]
 
 # Use cached sessions by default
-SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 SESSION_COOKIE_HTTPONLY = True
 
 AUTHENTICATION_BACKENDS = (
@@ -134,12 +136,12 @@ CACHES = {
 
 
 def create_logging_dict(root):
-    """
+    '''
     Create a logging dict using the passed root for log files
 
     Note the file handlers don't rotate their files.  This should be handled by
     logrotate (there is a sample conf file in www/deploy/logrotate.d).
-    """
+    '''
     return {
         'version': 1,
         'disable_existing_loggers': False,
@@ -213,7 +215,8 @@ CKEDITOR_CONFIGS = {
         'toolbarCanCollapse': 'true',
     },
 }
-CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_UPLOAD_PATH = 'uploads/cke/'
+CKEDITOR_IMAGE_BACKEND = 'pillow'
 
 # Debug toolbar settings
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
