@@ -1,0 +1,23 @@
+language: python
+
+python:
+  - 2.7
+
+env:
+  global:
+  - DJANGO_CONF="conf.travis"
+
+install:
+  - pip install -r www/deploy/requirements.txt
+
+before_script:
+    - psql -c "CREATE DATABASE travisci;" -U postgres
+
+script:
+    - python www/manage.py syncdb --noinput    
+    - cd www && python ./manage.py test --noinput
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
