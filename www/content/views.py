@@ -1,7 +1,12 @@
+import os
+
 from django.views import generic
+from django.http import HttpResponse
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse_lazy
+
+from django.conf import settings
 
 from . import forms
 
@@ -28,3 +33,12 @@ class ContactFormView(generic.FormView):
 
 class HomeView(generic.TemplateView):
     template_name = 'content/home.html'
+
+
+class ResumeView(generic.View):
+    def get(self, request, *args, **kwargs):
+        filepath = os.path.join(settings.STATIC_ROOT, 'docs/resume_zsoobhan.pdf')
+        with open(filepath, 'r') as pdf:
+            response = HttpResponse(pdf.read(), content_type='application/pdf')
+            response['Content-Disposition'] = 'inline;filename=resume_zsoobhan.pdf'
+            return response
