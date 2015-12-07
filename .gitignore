@@ -17,6 +17,9 @@ nosetests.xml
 # Uploads
 www/public/media
 
+# staticfiles
+www/public/static
+
 #confs which contain sensitive information
 www/conf/local.py
 www/conf/prod.py
