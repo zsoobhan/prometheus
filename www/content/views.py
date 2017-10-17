@@ -34,6 +34,8 @@ class ContactFormView(generic.FormView):
 class HomeView(generic.TemplateView):
     template_name = 'content/home.html'
 
+class AboutView(generic.TemplateView):
+    template_name = 'content/about.html'
 
 class ResumeView(generic.View):
     def get(self, request, *args, **kwargs):

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Ziyad Soobhan" %}{% endblock %}
+{% block description %}{% trans "About" %}{% endblock %}
+{% block keywords %}{% trans "About" %}{% endblock %}
+{% block body_class %}wrapper{% endblock %}
+
+{% block content %}
+
+<div class="featured-wrapper">
+		<div class="extra2 ">
+            <div class="small-spacer"></div>
+
+            <div class="ebox">
+                <div class="hexagon">
+                      <i class="icon fa-code-fork"></i>
+                </div>
+                <div class="title">
+                    <h2>Source Code</h2>
+                    <span class="byline">fork, clone, PR</span>
+                </div>
+                <p>
+                The <a href="//github.com/zsoobhan/prometheus" target="_blank" id="source-js">source code</a>
+                of this website is available freely on my GitHub page. Please feel free to fork the project,
+                modify it according to your requirements and credit the relevant contributors.
+                </p>
+            </div>
+
+            <div class="small-spacer"></div>
+
+            <div class="ebox">
+                <div class="title">
+                    <h2>Infrastructure</h2>
+                    <span class="byline">nginx, supervisor, uWSGI, virtualenv, django</span>
+                </div>
+                <p>
+                   The current stack for this website is currently set up on a
+                   <a href="https://www.digitalocean.com/?refcode=3b0020c434de">DigitalOcean</a>
+                   droplet namespaced with a hierarchical folder structure, symlinks and a virtualenv.
+                   The codebase is deployed via a fabric script which provisions the server,
+                   migrates the database, updates the configuration files and restarts the necessary services.
+                   The web application itself is managed with supervisor and uWSGI which creates
+                   a websocket accessed and served using Nginx while all of the static files are pushed and served
+                   via AWS S3.  For more information with regard to the status of the site, check my twitter
+                   feed or GitHub repository, both whose links may be found at the bottom of the page.
+                </p>
+            </div>
+            <div class="spacer"></div>
+
+            <div class="triangle-grey"></div>
+        </div>
+</div>
+
+
+{% endblock %}
+
