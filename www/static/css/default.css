@@ -302,7 +302,7 @@ ul.style3 .icon
 	.header-wrapper
 	{
 		overflow: hidden;
-		padding: 2em 0em 0em 0em;
+		padding: 0em 0em 0em 0em;
 		text-align: center;
 		background: #FFC000;
 	}
@@ -310,13 +310,15 @@ ul.style3 .icon
 	.header h1
 	{
 		font-size: 3.5em;
-		color: #FFF;
+		color: #3D3D3D;
 	}
 
 	.header img
 	{
-        margin: 2px auto;
+        margin: auto auto;
         width: auto;
+        zoom: 20%;
+        padding: 2.5em;
 	}
 
 .triangle-up {

@@ -6,7 +6,7 @@ Prometheus - http://zsoobhan.co.uk
 Introduction
 ------------
 Ziyad Soobhan's personal website/project.
-This a Django 1.7.x with a fabric deploy script. It is designed to be
+This a Django 1.8.x with a fabric deploy script. It is designed to be
 repeatable and painless to set up again if the infrastructure changes
 
 
