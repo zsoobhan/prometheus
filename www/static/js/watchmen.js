@@ -10,6 +10,10 @@ $('#resume-js').on('click', function() {
   ga('send', 'event', 'menu', 'click', $(this).data('target'));
 });
 
+$('#resume-landing-js').on('click', function() {
+  ga('send', 'event', 'menu', 'click', $(this).data('target'));
+});
+
 $('#source-js').on('click', function() {
   ga('send', 'event', 'menu', 'click', $(this).data('target'));
 });

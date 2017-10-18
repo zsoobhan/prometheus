@@ -37,6 +37,9 @@ class HomeView(generic.TemplateView):
 class AboutView(generic.TemplateView):
     template_name = 'content/about.html'
 
+class ResumeLandingView(generic.TemplateView):
+    template_name = 'content/resume.html'
+
 class ResumeView(generic.View):
     def get(self, request, *args, **kwargs):
         filepath = os.path.join(settings.STATIC_ROOT, 'docs/resume_zsoobhan.pdf')

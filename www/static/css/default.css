@@ -48,6 +48,11 @@ a
 	color: #2C383B;
 }
 
+.hexagon a
+{
+	color: #FFF;
+}
+
 a:hover
 {
      text-decoration: none;
