@@ -17,9 +17,17 @@
                       <i class="icon fa-code-fork"></i>
                 </div>
                 <div class="title">
-                    <h2>Source Code</h2>
-                    <span class="byline">fork, clone, PR</span>
+                    <h2>Motivation</h2>
+                    <span class="byline">Reproducible, Deployable, Configurable</span>
                 </div>
+                <p>
+                This website and it's deployment procedure, were designed to
+                be as painless and reproducible as possible, due to the
+                codebase being used as a base template for any personal web
+                projects, as well as, maintaining flexibily with regards to cloud
+                service providers.
+                </p>
+
                 <p>
                 The <a href="//github.com/zsoobhan/prometheus" target="_blank" id="source-js">source code</a>
                 of this website is available freely on my GitHub page. Please feel free to fork the project,
@@ -27,22 +35,39 @@
                 </p>
             </div>
 
-            <div class="small-spacer"></div>
+            <div class="tiny-spacer"></div>
 
             <div class="ebox">
                 <div class="title">
                     <h2>Infrastructure</h2>
-                    <span class="byline">nginx, supervisor, uWSGI, virtualenv, django</span>
+                    <span class="byline">Nginx, Supervisor, uWSGI, Virtualenv, Django, Cloud</span>
                 </div>
                 <p>
-                   The current stack for this website is currently set up on a
+                The minimum requirements for the target server are
+                Nginx, PostgreSQL, uWSGI and VirtualEnv being set up. The remainder
+                of the configuration is done via an automated script.
+                </p>
+                <p>
+                   The stack for this web application  is currently set up on a
                    <a href="https://www.digitalocean.com/?refcode=3b0020c434de">DigitalOcean</a>
-                   droplet namespaced with a hierarchical folder structure, symlinks and a virtualenv.
-                   The codebase is deployed via a fabric script which provisions the server,
+                   droplet namespaced with a hierarchical folder structure, symlinks and a python virtual
+                   environment.
+                   This design decision allows multiple websites to run
+                   simultaneously and independently on the same host server
+                   without their requirements clashing.  The web application is
+                   therefore run using uWSGI and managed using Supervisor while
+                   Nginx is used to proxy to the WSGI process via a web-socket.
+                   To reduce the load on the host, static files are served via
+                   an Amazon S3 bucket and automatically synced during deployment.
+
+                </p>
+                <p>
+                   The application is deployed via a fabric script which provisions the server,
                    migrates the database, updates the configuration files and restarts the necessary services.
-                   The web application itself is managed with supervisor and uWSGI which creates
-                   a websocket accessed and served using Nginx while all of the static files are pushed and served
-                   via AWS S3.  For more information with regard to the status of the site, check my twitter
+
+                </p>
+                <p>
+                   For more information with regard to the status of the site, check my twitter
                    feed or GitHub repository, both whose links may be found at the bottom of the page.
                 </p>
             </div>
