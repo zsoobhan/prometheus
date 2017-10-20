@@ -1101,3 +1101,10 @@ ul.contact li a.icon-rss:before
 {
     text-align: center
 }
+
+@media only screen and (max-width: 900px) {
+	.header img
+	{
+        width: 66%;
+	}
+}
