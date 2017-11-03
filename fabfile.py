@@ -6,7 +6,7 @@ from fabric.api import local, cd, sudo
 from fabric.contrib.files import exists
 from fabric.colors import green, _wrap_with, red, cyan, magenta
 
-from fabconfig import env
+from fabconfig import env, prod  # noQA
 
 
 def deploy():
