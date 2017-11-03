@@ -6,7 +6,7 @@ from fabric.api import local, cd, sudo
 from fabric.contrib.files import exists
 from fabric.colors import green, _wrap_with, red, cyan, magenta
 
-from fabconfig import env, prod
+from fabconfig import env
 
 
 def deploy():
@@ -31,7 +31,7 @@ def deploy():
 
 
 def notify(msg, col=green, wrap='0'):
-    bar = '+-%s-+' % ('-'*len(msg))
+    bar = '+-%s-+' % ('-' * len(msg))
     print ''
     print col(bar)
     print _wrap_with(wrap)(col("| %s |" % msg))
@@ -41,7 +41,8 @@ def notify(msg, col=green, wrap='0'):
 
 def set_ssh_user():
     user = prompt(
-        red('User for remote host? Defaults to %(remote_user)s' % env))
+        red('User for remote host? Defaults to %(remote_user)s' % env)
+    )
     if user:
         env.user = user
     else:
@@ -53,7 +54,8 @@ def set_branch_information():
     env.raw_branch_name = local('git symbolic-ref --short HEAD', capture=True)
     env.branch = env.raw_branch_name.replace('/', '_')
     env.build_name = '%s%s' % (
-        env.branch, datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S'))
+        env.branch, datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+    )
     env.build_path = '/tmp/build-%(build_name)s.tar.gz' % env
     env.code_dir = '%(project_dir)s/builds/%(build_name)s/' % env
 
@@ -71,7 +73,11 @@ def do_git_stuff():
 
 def create_and_push_archive():
     notify('Zipping up and putting archive on server')
-    local('git archive --format tar %(raw_branch_name)s %(web_dir)s | gzip > %(build_path)s ' % env)  # noqa
+    local(
+        'git archive --format tar %(raw_branch_name)s %(web_dir)s '
+        '| gzip > %(build_path)s '
+        % env
+    )
     put(env.build_path, env.build_path)
 
 
@@ -95,7 +101,7 @@ def provision_server():
         'install -y nginx',
         'install -y postgresql',
         'install -y postgresql-contrib',
-        ]
+    ]
     provision = prompt(red('Provision Server? [y/N]'))
     if provision.strip() in ['y', 'Y']:
         for cmd in apt_get_cmds:
@@ -140,7 +146,10 @@ def unpack():
     notify('Unpacking codebase')
     sudo('mkdir -p %(builds_dir)s' % env)
     with cd(env.builds_dir):
-        sudo('if [ -d "%(build_name)s" ]; then rm -rf "%(build_name)s"; fi' % env)  # noqa
+        sudo(
+            'if [ -d "%(build_name)s" ]; then rm -rf "%(build_name)s"; fi' %
+            env
+        )  # noqa
         sudo('mkdir %(build_name)s' % env)
         sudo('tar -xzf %(build_path)s -C %(build_name)s' % env)
     with cd(env.code_dir):
@@ -148,13 +157,14 @@ def unpack():
 
 
 def move_confs():
-    notify('Copyting Nginx, Supervisor and Logrotate confs to their '
-           'respective destinations')
+    notify(
+        'Copyting Nginx, Supervisor and Logrotate confs to their '
+        'respective destinations'
+    )
     cmds = [
         'cp deploy/nginx/%(build)s.conf /etc/nginx/sites-enabled/%(project_code)s%(build)s.conf',  # noqa
         'cp deploy/supervisord/%(build)s.conf /etc/supervisor/conf.d/%(project_code)s%(build)s.conf',  # noqa
         'cp deploy/logrotate.d/application /etc/logrotate.d/app.%(project_code)s%(build)s',  # noqa
-
     ]
     with cd(env.code_dir):
         [sudo(cmd % env) for cmd in cmds]
@@ -182,16 +192,14 @@ def _activate_virtualenv():
 
 def update_virtualenv():
     notify('Updating VirtualEnv')
-    with cd(env.code_dir+'/deploy'):
+    with cd(env.code_dir + '/deploy'):
         sudo(_activate_virtualenv() + 'pip install -r requirements.txt')
 
 
 def manage_new_code():
     'Updates database and deals with static files'
     notify('Migrate and collecstatic are about to happen...')
-    cmds = [
-        './manage.py migrate',
-        './manage.py collectstatic --noinput']
+    cmds = ['./manage.py migrate', './manage.py collectstatic --noinput']
 
     for cmd in cmds:
         with cd(env.code_dir):

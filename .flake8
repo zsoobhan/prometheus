@@ -1,0 +1,2 @@
+[flake8]
+exclude = .git,www/settings.py,www/manage.py/,www/*/migrations/, www/conf/

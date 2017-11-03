@@ -4,12 +4,12 @@ DEBUG = TEMPLATE_DEBUG = False
 
 DATABASES = {
     'default': {
-        'ENGINE':   'django.db.backends.postgresql_psycopg2',
-        'NAME':     'travisci',
-        'USER':     'postgres',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'travisci',
+        'USER': 'postgres',
         'PASSWORD': '',
-        'HOST':     'localhost',
-        'PORT':     '',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -19,9 +19,7 @@ CACHES = {
     }
 }
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-ADMINS = (
-    ('Ziyad Soobhan', 'zsoobhan@gmail.com'),
-)
+ADMINS = (('Ziyad Soobhan', 'zsoobhan@gmail.com'), )
 
 SECRET_KEY = 'thisisateststringandisnotusedinproduction'
 GA_TRACKING_CODE = 'XXXXX-XXXX'
