@@ -16,8 +16,10 @@ class ContactFormView(generic.FormView):
     form_class = forms.ContactForm
     template_name = 'content/contact.html'
     success_url = reverse_lazy('home')
-    success_message = _("Your contact message has been saved and I will be in "
-                        "touch shortly.")
+    success_message = _(
+        "Your contact message has been saved and I will be in "
+        "touch shortly."
+    )
 
     def form_valid(self, form):
         form.save()
@@ -34,16 +36,22 @@ class ContactFormView(generic.FormView):
 class HomeView(generic.TemplateView):
     template_name = 'content/home.html'
 
+
 class AboutView(generic.TemplateView):
     template_name = 'content/about.html'
+
 
 class ResumeLandingView(generic.TemplateView):
     template_name = 'content/resume.html'
 
+
 class ResumeView(generic.View):
     def get(self, request, *args, **kwargs):
-        filepath = os.path.join(settings.STATIC_ROOT, 'docs/resume_zsoobhan.pdf')
+        filepath = os.path.join(
+            settings.STATIC_ROOT, 'docs/resume_zsoobhan.pdf'
+        )
         with open(filepath, 'r') as pdf:
             response = HttpResponse(pdf.read(), content_type='application/pdf')
-            response['Content-Disposition'] = 'inline;filename=resume_zsoobhan.pdf'
+            response['Content-Disposition'
+                     ] = 'inline;filename=resume_zsoobhan.pdf'
             return response

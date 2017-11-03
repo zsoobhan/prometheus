@@ -1,3 +1,5 @@
+---
+
 language: python
 
 python:
@@ -5,17 +7,18 @@ python:
 
 env:
   global:
-  - DJANGO_CONF="conf.travis"
+    - DJANGO_CONF="conf.travis"
 
 install:
   - pip install -r www/deploy/requirements.txt
 
 before_script:
-    - psql -c "CREATE DATABASE travisci;" -U postgres
+  - psql -c "CREATE DATABASE travisci;" -U postgres
 
 script:
-    - python www/manage.py syncdb --noinput    
-    - cd www && python ./manage.py test --noinput
+  - python -m flake8 .
+  - python www/manage.py syncdb --noinput
+  - cd www && python ./manage.py test --noinput
 
 notifications:
   email:

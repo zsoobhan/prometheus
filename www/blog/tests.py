@@ -8,7 +8,6 @@ from . import models
 
 
 class BlogEntryTests(TestCase):
-
     def setUp(self):
         self.blog_entry = BlogEntryFactory.create()
 
@@ -44,7 +43,7 @@ class BlogEntryFactory(factory.django.DjangoModelFactory):
     status = models.PUBLISHED
     title = 'This is a test title'
     subtitle = 'This is a test subtitle'
-    content = 'The quick brown fox jumps over the lazy dog. '*10
+    content = 'The quick brown fox jumps over the lazy dog. ' * 10
     slug = factory.Sequence(lambda n: "slug-%03d" % n)
 
     class Meta:

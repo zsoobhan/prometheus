@@ -4,7 +4,6 @@ import service
 
 
 class TestServices(TestCase):
-
     def test_number_generator(self):
         limits = range(1, 10)
         for lim in limits:

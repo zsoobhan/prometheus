@@ -9,15 +9,12 @@ class Communication(models.Model):
 
     email = models.EmailField(max_length=254)
     message = models.TextField(
-        help_text="Your message goes here.",
-        max_length=4096)
-    name = models.CharField(
-        max_length=64,
-        help_text="Your name goes here.")
+        help_text="Your message goes here.", max_length=4096
+    )
+    name = models.CharField(max_length=64, help_text="Your name goes here.")
     phone_number = models.CharField(
-        max_length=16,
-        blank=True,
-        help_text='Your phone number goes here.')
+        max_length=16, blank=True, help_text='Your phone number goes here.'
+    )
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):

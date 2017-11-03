@@ -36,9 +36,7 @@ DEFAULT_FROM_EMAIL = 'app@zsoobhan.co.uk'
 COMMUNICATION_EMAIL = 'zsoobhan@gmail.com'
 
 # Additional locations of static files
-STATICFILES_DIRS = (
-    location('static/'),
-)
+STATICFILES_DIRS = (location('static/'), )
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -89,9 +87,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'urls'
 
-TEMPLATE_DIRS = (
-    location('templates'),
-)
+TEMPLATE_DIRS = (location('templates'), )
 
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -118,9 +114,7 @@ INSTALLED_APPS = [
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 SESSION_COOKIE_HTTPONLY = True
 
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-)
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend', )
 
 COMPRESS_ENABLED = True
 COMPRESS_OUTPUT_DIR = 'cache'
@@ -147,7 +141,8 @@ def create_logging_dict(root):
         'disable_existing_loggers': False,
         'formatters': {
             'verbose': {
-                'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'  # noqa
+                'format':
+                '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'  # noqa
             },
             'simple': {
                 'format': '%(levelname)s %(message)s'
@@ -208,6 +203,7 @@ def create_logging_dict(root):
         }
     }
 
+
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
@@ -220,4 +216,4 @@ CKEDITOR_IMAGE_BACKEND = 'pillow'
 
 # Debug toolbar settings
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
-INTERNAL_IPS = ('127.0.0.1',)
+INTERNAL_IPS = ('127.0.0.1', )

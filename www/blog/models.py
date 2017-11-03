@@ -3,12 +3,9 @@ from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django.db import models
 
-
 PUBLISHED = 'PUBLISHED'
 DRAFT = 'DRAFT'
-STATUS_CHOICES = [
-    (PUBLISHED, 'Published'),
-    (DRAFT, 'Draft')]
+STATUS_CHOICES = [(PUBLISHED, 'Published'), (DRAFT, 'Draft')]
 
 
 class Tag(models.Model):
@@ -25,14 +22,14 @@ class BlogEntry(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     date_published = models.DateTimeField(null=True, blank=True, db_index=True)
     date = models.DateField(
-        null=True,
-        blank=True,
-        help_text='The date visible on the post')
+        null=True, blank=True, help_text='The date visible on the post'
+    )
     status = models.CharField(
         max_length='16',
         help_text='The status of the blog article',
         choices=STATUS_CHOICES,
-        default=DRAFT)
+        default=DRAFT
+    )
     title = models.CharField(max_length=4096)
     slug = models.SlugField(max_length=4096, unique=True)
     subtitle = models.CharField(blank=True, max_length=4096)
@@ -42,7 +39,8 @@ class BlogEntry(models.Model):
     icon = models.CharField(
         max_length=64,
         help_text='The font awesome icon to be displayed',
-        default='fa-align-right')
+        default='fa-align-right'
+    )
 
     class Meta:
         get_latest_by = 'date_published'
@@ -69,4 +67,7 @@ class BlogEntry(models.Model):
 
     def get_absolute_url(self):
         return reverse(
-            'blog:blog-entry-detail-view', kwargs={'slug': self.slug})
+            'blog:blog-entry-detail-view', kwargs={
+                'slug': self.slug
+            }
+        )
