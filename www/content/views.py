@@ -1,12 +1,12 @@
+import datetime
 import os
 
-from django.views import generic
-from django.http import HttpResponse
-from django.contrib import messages
-from django.utils.translation import ugettext as _
-from django.core.urlresolvers import reverse_lazy
-
 from django.conf import settings
+from django.contrib import messages
+from django.core.urlresolvers import reverse_lazy
+from django.http import HttpResponse
+from django.utils.translation import ugettext as _
+from django.views import generic
 
 from . import forms
 
@@ -35,6 +35,11 @@ class ContactFormView(generic.FormView):
 
 class HomeView(generic.TemplateView):
     template_name = 'content/home.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(HomeView, self).get_context_data(*args, **kwargs)
+        context['years'] = datetime.date.today().year - 2012
+        return context
 
 
 class AboutView(generic.TemplateView):
