@@ -1,4 +1,4 @@
-Django==1.8.6,<1.9
+Django==1.8.19,<1.9
 django-appconf==1.0.1
 django-boto==0.3.9
 django-ckeditor==5.0.2
