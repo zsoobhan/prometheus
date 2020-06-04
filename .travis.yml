@@ -20,6 +20,9 @@ script:
   - python www/manage.py syncdb --noinput
   - cd www && python ./manage.py test --noinput
 
+services:
+  - postgresql
+
 notifications:
   email:
     on_success: change
