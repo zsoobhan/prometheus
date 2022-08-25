@@ -1,6 +1,13 @@
 Prometheus - http://zsoobhan.co.uk
 ==================================
 
+Deprecation Warning
+-------------------
+
+Everything here is decades old tech and needs to be replaced with a static website.
+
+See `local_deploy_requirements.txt` for the python3 deployment requirements. Good luck.
+
 [![Build Status](https://travis-ci.org/zsoobhan/prometheus.svg?branch=master)](https://travis-ci.org/zsoobhan/prometheus)
 
 Introduction
@@ -57,4 +64,4 @@ Acknowledgements
 The overall structure has been inspired by tangentlabs/tangent-django-boilerplate.
 
 The design was inspired by templated.co/plushiness which has been modified to
-be more responsive.  
+be more responsive.
