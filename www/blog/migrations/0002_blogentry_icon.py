@@ -7,14 +7,18 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0001_initial'),
+        ("blog", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='blogentry',
-            name='icon',
-            field=models.CharField(default=b'fa-align-right', help_text=b'The font awesome icon to be displayed', max_length=64),
+            model_name="blogentry",
+            name="icon",
+            field=models.CharField(
+                default=b"fa-align-right",
+                help_text=b"The font awesome icon to be displayed",
+                max_length=64,
+            ),
             preserve_default=True,
         ),
     ]

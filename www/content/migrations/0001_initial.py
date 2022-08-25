@@ -6,22 +6,38 @@ from django.db import models, migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Communication',
+            name="Communication",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('email', models.EmailField(max_length=254)),
-                ('message', models.TextField(help_text=b'Your message goes here.')),
-                ('name', models.CharField(help_text=b'Your name goes here.', max_length=64)),
-                ('phone_number', models.CharField(help_text=b'Your phone number goes here.', max_length=16, blank=True)),
-                ('date_created', models.DateTimeField(auto_now_add=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        verbose_name="ID",
+                        serialize=False,
+                        auto_created=True,
+                        primary_key=True,
+                    ),
+                ),
+                ("email", models.EmailField(max_length=254)),
+                ("message", models.TextField(help_text=b"Your message goes here.")),
+                (
+                    "name",
+                    models.CharField(help_text=b"Your name goes here.", max_length=64),
+                ),
+                (
+                    "phone_number",
+                    models.CharField(
+                        help_text=b"Your phone number goes here.",
+                        max_length=16,
+                        blank=True,
+                    ),
+                ),
+                ("date_created", models.DateTimeField(auto_now_add=True)),
             ],
-            options={
-            },
+            options={},
             bases=(models.Model,),
         ),
     ]

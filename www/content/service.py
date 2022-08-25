@@ -1,19 +1,19 @@
 import random
 
 NUMBERS = {
-    1: 'one',
-    2: 'two',
-    3: 'three',
-    4: 'four',
-    5: 'five',
+    1: "one",
+    2: "two",
+    3: "three",
+    4: "four",
+    5: "five",
 }
 
 WORDS = {
-    'one': 1,
-    'two': 2,
-    'three': 3,
-    'four': 4,
-    'five': 5,
+    "one": 1,
+    "two": 2,
+    "three": 3,
+    "four": 4,
+    "five": 5,
 }
 
 
@@ -32,7 +32,7 @@ def _generate_sum(word_1, word_2):
 
 
 def generate_answer(question):
-    'quick and dirty way to get the numbers out'
-    words = question.rstrip('?').split(' ')
+    "quick and dirty way to get the numbers out"
+    words = question.rstrip("?").split(" ")
     words = (words[2], words[4])
-    return (_generate_sum(*words))
+    return _generate_sum(*words)
