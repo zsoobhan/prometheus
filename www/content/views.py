@@ -41,10 +41,6 @@ class HomeView(generic.TemplateView):
         return context
 
 
-class AboutView(generic.TemplateView):
-    template_name = "content/about.html"
-
-
 class ResumeLandingView(generic.TemplateView):
     template_name = "content/resume.html"
 
