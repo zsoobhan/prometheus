@@ -41,9 +41,9 @@ class BlogEntryTests(TestCase):
 # Test Utils
 class BlogEntryFactory(factory.django.DjangoModelFactory):
     status = models.PUBLISHED
-    title = 'This is a test title'
-    subtitle = 'This is a test subtitle'
-    content = 'The quick brown fox jumps over the lazy dog. ' * 10
+    title = "This is a test title"
+    subtitle = "This is a test subtitle"
+    content = "The quick brown fox jumps over the lazy dog. " * 10
     slug = factory.Sequence(lambda n: "slug-%03d" % n)
 
     class Meta:

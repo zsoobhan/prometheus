@@ -11,7 +11,7 @@ class TestServices(TestCase):
             self.assertTrue(num <= lim)
 
     def test_generate_words(self):
-        expected = ('one', 'five')
+        expected = ("one", "five")
         result = service.generate_words(1, 5)
         self.assertEqual(result, expected)
 
@@ -21,6 +21,6 @@ class TestServices(TestCase):
         self.assertEqual(answer, 2)
 
     def test_generate_sum(self):
-        res = service._generate_sum('one', 'three')
+        res = service._generate_sum("one", "three")
         expected = 4
         self.assertEqual(res, expected)

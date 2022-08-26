@@ -7,11 +7,11 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('content', '0003_upload'),
+        ("content", "0003_upload"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='Upload',
+            name="Upload",
         ),
     ]
