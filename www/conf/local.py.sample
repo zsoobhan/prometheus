@@ -1,42 +1,33 @@
 from conf.default import *  # noqa
 
 # All debugging activated
-DEBUG = TEMPLATE_DEBUG = True
+DEBUG = TEMPLATE_DEBUG =True
 
 INSTALLED_APPS += [
     'debug_toolbar',
     'template_debug',
 ]
 
-# Output emails to console
+# Output emails to STDOUT
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'prometheus_db',
+        'USER': 'user',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '5432',
     },
 }
 
-
-ADMINS = (
-    ('name', 'name@domain.com'),
-)
+ADMINS = (('XXXXX', 'XXXX@XXXX.com'), )
 
 MANAGERS = ADMINS
 
-# keep logs out of www
+# Use a folder outside of www for logs
 LOGGING = create_logging_dict(location('../logs'))
-
-# don't cache templates in dev
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-)
 
 CACHES = {
     'default': {
@@ -44,13 +35,12 @@ CACHES = {
     }
 }
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost']
 
 # Don't compress assets
 COMPRESS_ENABLED = False
-SECRET_KEY = 'some-long-string'
+SECRET_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
-DEBUG_TOOLBAR_PATCH_SETTINGS = True
 
 # Google Analytics
-GA_TRACKING_CODE = 'XXXXX-XXXX' 
+GA_TRACKING_CODE = 'XXXXX-XXXX'

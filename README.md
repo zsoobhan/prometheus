@@ -10,19 +10,22 @@ See `local_deploy_requirements.txt` for the python3 deployment requirements. Goo
 
 [![Build Status](https://travis-ci.org/zsoobhan/prometheus.svg?branch=master)](https://travis-ci.org/zsoobhan/prometheus)
 
+Modern(ish) Local Setup
+-----------------------
+
+```bash
+cp www/conf/local.py.sample www/conf/local.py
+cd docker
+docker-compose run --service-ports website bash
+./manage.py migrate
+./manage.py runserver 0:8000
+```
+
 Introduction
 ------------
 Ziyad Soobhan's personal website/project.
 This a Django 1.8.x with a fabric deploy script. It is designed to be
 repeatable and painless to set up again if the infrastructure changes
-
-
-
-Analytics
----------
-The project uses Universal Analytics from Google to track basic page views
-as well as certain button clicks. I plan on using more of the Google Tag Manager
-features as and when required after the implementation of the blog.
 
 
 Infrastructure
@@ -45,18 +48,12 @@ Server Stack:
 
 App:
 
-  - Django 1.7
+  - Django 1.8
 
 Deploy:
 
   - Fabric
   - .sh
-
-
-
-Status
-------
-Up and running with limited content and working CMS-driven blog... with no blog entries yet
 
 
 Acknowledgements
