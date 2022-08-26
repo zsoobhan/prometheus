@@ -1,5 +1,5 @@
 .contact-form {
-		text-align: left;
+        text-align: left;
 }
 
 .contact-form .fields label{
@@ -15,27 +15,30 @@
     width:230px;
     max-width:80%;
     max-height:80%;
+    border-radius:5px;
+    border: 2px solid #6F6F6F;
 }
 
 .contact-form .fields textarea{
     top:50px;
-    left:30px; 
+    left:30px;
     width:230px;
     height:15pt;
     max-width:80%;
     max-height:80%;
-    -webkit-transition: all 0.7s ease; 
+    -webkit-transition: all 0.7s ease;
     transition: all 0.7s ease;
+    border-radius:5px;
+    border: 2px solid #6F6F6F;
 }
 
 .contact-form .fields textarea:focus {
-    border: 2px solid #333; 
-    border-radius:5px;
+    border: 2px solid #333;
     /*background-color:#000001; */
-    top:0; 
-    left:0; 
-    height:200px; 
-    width:300px; 
+    top:0;
+    left:0;
+    height:200px;
+    width:300px;
     max-width:80%;
     max-height:80%;
 }
@@ -44,11 +47,18 @@
 .contact-form .fields textarea:hover,
 .contact-form .fields input:focus
 {
-    border: 2px solid #333; 
     border-radius:5px;
+    -moz-transition: opacity 0.25s ease-in-out;
+    -webkit-transition: opacity 0.25s ease-in-out;
+    -o-transition: opacity 0.25s ease-in-out;
+    -ms-transition: opacity 0.25s ease-in-out;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+    text-shadow: 0px 0 15px #fff;
+    border: 2px solid black
 }
 
 .contact-form .fields .errorlist{
-	color: #F00;
+    color: #F00;
 }
 
