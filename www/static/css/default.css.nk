@@ -30,7 +30,9 @@ p, ol, ul
 
 ol, ul
 {
-    padding: 0;
+    padding: auto;
+    text-align: center;
+    margin: auto;
     list-style: none;
 }
 
@@ -46,6 +48,11 @@ strong
 a
 {
     color: #2C383B;
+}
+
+.hexagon a
+{
+    color: #FFF;
 }
 
 a:hover
@@ -99,12 +106,6 @@ a:hover
 {
     margin: 0 auto;
     width: auto;
-}
-
-.image-list
-{
-    width: 70%;
-    height: auto;
 }
 
 /*********************************************************************************/
@@ -196,7 +197,7 @@ ul.style2 li:first-child
 
 ul.style2 .icon
 {
-    color: #0000001A;
+    color: #FFF;
 }
 
 ul.style3
@@ -236,7 +237,7 @@ ul.style3 li:first-child
 
 ul.style3 .icon
 {
-    color: #0000001A;
+    color: #DB3256;
 }
 
 
@@ -347,19 +348,19 @@ ul.style3 .icon
         padding: 5em 0em;
         text-align: center;
     }
-
+    
     .logo h1
     {
         font-size: 3.5em;
         color: #FFF;
     }
-
+    
     .logo a
     {
         text-decoration: none;
         color: #FFF;
     }
-
+    
     .logo span
     {
         letter-spacing: 0.10em;
@@ -372,10 +373,10 @@ ul.style3 .icon
     {
         color: rgba(255,255,255,0.8);
     }
-
+    
     .logo:hover a
     {
-
+       
     }
 
     .logo .icon
@@ -383,8 +384,8 @@ ul.style3 .icon
         font-size: 4em;
         color: rgba(255,255,255,1);
     }
-
-
+    
+    
 
 /*********************************************************************************/
 /* Menu                                                                          */
@@ -399,23 +400,25 @@ ul.style3 .icon
     {
         margin: 0px auto;
     }
-
+    
     .menu ul
     {
         text-align: center;
+        margin: 0px auto;
+        list-style: none;
     }
-
+    
     .menu li
     {
         display: inline-block;
     }
-
+    
     .menu li a,
     .menu li span
     {
         display: inline-block;
-        margin-left: 0.50em;
-        padding: 2em 1.5em 1em 1.5em;
+        padding: 2em;
+        margin: 0px auto;
         letter-spacing: 0.50em;
         text-decoration: none;
         font-size: 0.8em;
@@ -426,14 +429,14 @@ ul.style3 .icon
         -webkit-transition: all 0.7s ease;
         transition: all 0.7s ease;
     }
-
+    
     .menu li:hover a,
-    .menu li.active a,
+    .menu li.active a, 
     .menu li.active span
     {
     text-shadow: 30px 30px 30px 30px #fff;
     }
-
+    
     #menu .current_page_item a
     {
         color: #FFF;
@@ -442,7 +445,7 @@ ul.style3 .icon
 /*********************************************************************************/
 /* Banner                                                                        */
 /*********************************************************************************/
-
+    
 .banner-wrapper
 {
     overflow: hidden;
