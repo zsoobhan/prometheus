@@ -1127,4 +1127,16 @@ ul.contact li a.icon-rss:before
     {
         width: 66%;
     }
+    .menu ul
+    {
+        margin: 1em;
+    }
+    .menu li a,
+    .menu li span
+    {
+        width: 90px;
+        padding: 0.75em;
+        letter-spacing: 0.20em;
+        font-size: 1em;
+    }
 }
