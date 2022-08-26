@@ -29,3 +29,6 @@ logs/*.log
 
 #aws sensitive information
 aws/*
+
+# databases
+www/prometheus_db
