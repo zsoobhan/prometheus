@@ -425,6 +425,7 @@ ul.style3 .icon
         color: #FFF;
         -webkit-transition: all 0.7s ease;
         transition: all 0.7s ease;
+        width: 120px;
     }
 
     .menu li:hover a,
