@@ -311,6 +311,11 @@ ul.style3 .icon
     font-size: 1.1em;
     color: #6F6F6F;
 }
+.title .other-byline
+{
+    font-size: 1em;
+    color: #6F6F6F;
+}
 
 /*********************************************************************************/
 /* Header                                                                        */
