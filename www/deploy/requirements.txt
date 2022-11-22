@@ -16,7 +16,7 @@ gnureadline==6.3.3
 ipdb==0.8.1
 ipython==4.0.0
 paramiko==2.0.9
-pillow==3.0.0
+pillow==9.3.0
 psycopg2==2.7
 pycrypto==2.6.1
 python-dateutil==2.4.2
