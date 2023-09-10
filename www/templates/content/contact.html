@@ -16,33 +16,12 @@
                     <span class="icon fa-envelope"></span>
             </div>
             <div class="title">
-                 <h2>Contact Form</h2>
-            <span class="byline">
-                If you would like to contact me, leave your details below and I will be in touch.
-            </span>
-            </div>
-            <div class="contact-form">
-                <form action="." method="POST">
-                    {% csrf_token %}
-                    <span class='fields'>
-                        {# Include the visible fields only #}
-                        {% for field in form.visible_fields %}
-                            {% if field.name == "answer" %}
-                                <label for="id_answer">{{ QUESTION }}:</label>
-                                {{ field }}
-                            {% else %}
-                                {{ field.label_tag }}
-                                {{ field }}
-                            {% endif %}
-                            {{ field.errors }}
-                        {% endfor %}
-                        {# render hidden fields without error #}
-                        {% for hidden in form.hidden_fields %}
-                            {{ hidden }}
-                        {% endfor %}
-                    </span>
-                    <input id="contact-js" class="button" type="submit" value="Submit" data-target="contact-submit"/>
-                </form>
+                 <h2>Contact</h2>
+            <p>
+               Send an email to <b>me[@]zsoobhan.co.uk</b> or find me on social media as <b>@zsoobhan</b>.
+            <p>
+
+
             </div>
         </div>
         <div class="spacer"></div>
